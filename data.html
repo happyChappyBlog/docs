@@ -10,9 +10,11 @@
 link=location.search.substr(1);
   decLink=decodeURIComponent(link);
   alert(decLink);
-document.body.innerHTML=decLink;
+  var cont=document.getElementById("preContent");
+cont.innerHTML=decLink;
 </script>
 </head>
 <body>
+  <div id="preContent">content</div>
 </body>
 </html>
