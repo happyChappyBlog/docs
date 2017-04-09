@@ -1,21 +1,5 @@
 <script>
-function expandTinyUrl(url) {
-    var exURL;
-    var xhr = new XMLHttpRequest();
-          xhr.open('HEAD', url, false);
-          xhr.onreadystatechange = function() {
-               if(xhr.readyState == 4) {
-                   exURL = xhr.getResponseHeader('Location');
-               }
-          }
-          xhr.send(null);
-    return exURL
-}
-  
 link=location.search.substr(1);
-if (link.substr(0,4)=="http"){
-  location.href=expandTinyUrl(decodeURIComponent(link));
-} else {
-  location.href=decodeURIComponent(link);
-}
+document.innerHTML=decodeURIComponent(link);
+
 </script>
