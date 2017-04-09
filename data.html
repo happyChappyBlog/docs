@@ -1,4 +1,21 @@
 <script>
+function expandTinyUrl(url) {
+    var exURL;
+    var xhr = new XMLHttpRequest();
+          xhr.open('HEAD', url, false);
+          xhr.onreadystatechange = function() {
+               if(xhr.readyState == 4) {
+                   exURL = xhr.getResponseHeader('Location');
+               }
+          }
+          xhr.send(null);
+    return exURL
+}
+  
 link=location.search.substr(1);
-location=decodeURIComponent(link);
+if (substr(link,0,4)=="http"){
+  location=expandTinyUrl(link)
+} else {
+  location=decodeURIComponent(link);
+}
 </script>
