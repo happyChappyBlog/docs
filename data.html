@@ -15,7 +15,9 @@ function expandTinyUrl(url) {
 link=location.search.substr(1);
     alert(decodeURIComponent(link));
 if (substr(link,0,4)=="http"){
-  location.href=expandTinyUrl(decodeURIComponent(link));
+  var ex=expandTinyUrl(decodeURIComponent(link));
+    alert(ex);
+    location.href=ex;
 } else {
   location.href=decodeURIComponent(link);
 }
