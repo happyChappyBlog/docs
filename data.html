@@ -1,8 +1,4 @@
 <script>
 link=location.search.substr(1);
-  if (substr(link,0,4)=="http"){
-    location=link;
-  } else {
-  location=decodeURIComponent(link);
-  }
+location=decodeURIComponent(link);
 </script>
