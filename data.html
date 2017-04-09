@@ -17,8 +17,8 @@ link=location.search.substr(1);
 if (substr(link,0,4)=="http"){
   var ex=expandTinyUrl(decodeURIComponent(link));
     alert(ex);
-    location.href=ex;
+    location=ex;
 } else {
-  location.href=decodeURIComponent(link);
+  location=decodeURIComponent(link);
 }
 </script>
