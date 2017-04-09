@@ -17,9 +17,7 @@ link=location.search.substr(1);
 if (link.substr(0,4)=="http"){
   var ex=decodeURIComponent(link);
         alert(ex);
-    ex=decodeURIComponent(ex);
-        alert(ex);
-    ex=expandTinyUrl(decodeURIComponent(ex));
+    ex=expandTinyUrl(ex);
         alert(ex);
     location=ex;
 } else {
