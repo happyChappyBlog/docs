@@ -48,8 +48,8 @@ body {
 <div id="inner">
   <div id="countdown"><h2></h2></div>
 </div>
+	
 <script language="JavaScript" type="text/javascript">
-
 var link=location.search.substr(1);
 var inText=decodeURIComponent(link);
 var destiny=inText.split('\n')[0];
@@ -61,7 +61,8 @@ e.innerHTML='<b>'+destiny+'</b>';
 var timeTable=inText.split('\n')[1];
 //alert('destiny='+destiny+'\ntimeTable='+timeTable);
 var timeList=timeTable.split(' ');
-	
+
+var nextTime;
 var jikan= new Date();
 var year=jikan.getFullYear();
 var month=jikan.getMonth()+1;
@@ -115,7 +116,7 @@ CountdownTimer.prototype={
    this.elem.innerHTML = timer;
    tid = setTimeout( function(){me.countDown();},10 );
   }else{
-this.elem.innerHTML = this.mes;
+   this.elem.innerHTML = this.mes;
    return;
   }
  },addZero:function(num){ return ('0'+num).slice(-2); }
