@@ -84,7 +84,7 @@ CountdownTimer.prototype={
  },countDown:function(){
   var timer='';
   var today=new Date();
-  //var day=Math.floor((this.tl-today)/(24*60*60*1000));
+  var day=Math.floor((this.tl-today)/(24*60*60*1000));
   var hou=Math.floor(((this.tl-today)%(24*60*60*1000))/(60*60*1000));
   var min=Math.floor(((this.tl-today)%(24*60*60*1000))/(60*1000))%60;
   var sec=Math.floor(((this.tl-today)%(24*60*60*1000))/1000)%60%60;
@@ -92,7 +92,7 @@ CountdownTimer.prototype={
   var me=this;
 
   if( ( this.tl - today ) > 0 ){
-   //if (day) timer += '<span class="day">'+day+'</span><span class="moji">日</span>';
+   if (day) timer += '<span class="day">'+day+'</span><span class="moji">日</span>';
    if (hou) timer += '<span class="hou">'+hou+'</span><span class="moji">時間</span>';
    timer += '<span class="min">'+this.addZero(min)+'</span><span class="moji">分</span><span class="sec">'+this.addZero(sec)+'</span><span class="moji">秒</span>;
    this.elem.innerHTML = timer;
