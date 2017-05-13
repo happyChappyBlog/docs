@@ -75,7 +75,7 @@ var second = jikan.getSeconds();
 //alert(hour+'時'+minute+'分'+second+'秒');
 var nowDate=year+'/'+month+'/'+days;
 var nowTime=hour+':'+minute+':'+second;
-for (var i=0;i<timeList.length-1;i++){
+for (var i=0;i<timeList.length-2;i++){
   if (nowTime>timeList[i]+':00'){
 	if (nowTime<=timeList[i+1]+':00'){
 		nextTime=nowDate+' '+timeList[i+1];
