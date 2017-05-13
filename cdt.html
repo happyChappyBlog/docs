@@ -56,10 +56,16 @@ var nowTime=hour+':'+minute+':'+second;
 
 for (var i=0;i<timeList.length-1;i++){
   if (nowTime>timeList[i]+':00'){
-	if (nowTime<timeList[i+1]+':00'){
+	if (nowTime<=timeList[i+1]+':00'){
 		var nextTime=timeList[i+1];
 		break;
+	} else if (nowTime>timeList[timeList.length-1]+':00'){
+		var nextTime=timeList[timeList.length-1];
+		break;
 	}
+  } else {
+	  var nextTime=timeList[0];
+	  break;
   }
 }
 alert(nextTime);
