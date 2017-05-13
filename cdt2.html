@@ -51,11 +51,14 @@ function showday() {
 	if(cnt_sec<10){cnt_sec = '0' + cnt_sec;}
 	if(cnt_millisec<10){cnt_millisec = '0' + cnt_millisec;}
 
+el=document.getElementById("timeElm");
 if((xday - nowday) > 0){
-	document.tbox.dspday.value = cnt_hour+"時間"+cnt_min+"分"+cnt_sec+"秒";
+	el.innerHTML=cnt_hour+"時間"+cnt_min+"分"+cnt_sec+"秒";
+	//document.tbox.dspday.value = cnt_hour+"時間"+cnt_min+"分"+cnt_sec+"秒";
 }
 else {
-	document.tbox.dspday.value = "本日分は終了しました。";
+	el.innerHTML="本日分は終了しました。";
+	//document.tbox.dspday.value = "本日分は終了しました。";
 }
 	timerID = setTimeout('showday()', 10);
 
@@ -69,7 +72,7 @@ else {
 </head>
 <body>
 <div id="titleElm"><h1>CountDownTimer</h1></div>
-<form name="tbox"><input name="dspday" type="text" style="font-size : 48pt; color : red; text-align : center;border-width : 0px ;font-weight :bold ;" size="70"></form>
+<div id="timeElm"><h2></h2></div>
 </body>
 </html>
 
