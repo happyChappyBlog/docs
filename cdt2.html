@@ -9,13 +9,26 @@
 var link=location.search.substr(1);
 var inText=decodeURIComponent(link);
 var destiny=inText.split('\n')[0];
+var timeTable=inText.split('\n')[1];
+//alert('destiny='+destiny+'\ntimeTable='+timeTable);
+var timeList=timeTable.split(' ');
+
+var jikan= new Date();
+var year=jikan.getFullYear();
+var month=jikan.getMonth()+1;
+var day=jikan.getDate();
+var hour = jikan.getHours();
+if (hour<10){hour='0'+hour}
+var minute = jikan.getMinutes();
+if (minute<10){minute='0'+minute}
+var second = jikan.getSeconds();
 	
 window.onload=showday;
-year=2020; //カウントダウン終了　年
-mon=7; //カウントダウン終了　月
-day=24; //カウントダウン終了　日
+//year=2020; //カウントダウン終了　年
+//mon=7; //カウントダウン終了　月
+//day=24; //カウントダウン終了　日
 time=0; //カウントダウン終了　時
-xday = new Date(year,mon-1,day,time,00,00);
+xday = new Date(year,month-1,day,time,00,00);
 function showday() {
 	nowday = new Date();
 	passtime= xday.getTime()-nowday.getTime();　
@@ -35,10 +48,10 @@ function showday() {
 	if(cnt_millisec<10){cnt_millisec = '0' + cnt_millisec;}
 
 if((xday - nowday) > 0){
-	document.tbox.dspday.value = "東京オリンピック開催まで "+cnt_day+"日と "+cnt_hour+"時間"+cnt_min+"分"+cnt_sec+"秒"+cnt_millisec+"です。 "
+	document.tbox.dspday.value = cnt_hour+"時間"+cnt_min+"分"+cnt_sec+"秒"
 }
 else {
-	document.tbox.dspday.value = "東京オリンピック開催！"
+	document.tbox.dspday.value = "本日分は終了しました。"
 }
 	timerID = setTimeout('showday()', 10);
 }
@@ -46,10 +59,10 @@ else {
 // -->
 </SCRIPT>
 
-</HEAD>
-<BODY Margin="0" topMargin="0" marginheight="0" marginwidth="0">
+</head>
+<body Margin="0" topMargin="0" marginheight="0" marginwidth="0">
 
 <FORM name="tbox"><INPUT name="dspday" type="text" style="font-size : 20pt; color : red; text-align : left;border-width : 0px ;font-weight :bold ;" size="70"></FORM>
-</BODY>
-</HTML>
+</body>
+</html>
 
