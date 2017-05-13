@@ -55,7 +55,7 @@ CountdownTimer.prototype={
  },countDown:function(){
   var timer='';
   var today=new Date();
-  //var day=Math.floor((this.tl-today)/(24*60*60*1000));
+  var day=Math.floor((this.tl-today)/(24*60*60*1000));
   var hou=Math.floor(((this.tl-today)%(24*60*60*1000))/(60*60*1000));
   var min=Math.floor(((this.tl-today)%(24*60*60*1000))/(60*1000))%60;
   var sec=Math.floor(((this.tl-today)%(24*60*60*1000))/1000)%60%60;
@@ -75,7 +75,7 @@ CountdownTimer.prototype={
  },addZero:function(num){ return ('0'+num).slice(-2); }
 }
 function countdown(){
- var tl = new Date('23:59:59');
+ var tl = new Date(day+' 23:59:59');
  //この上の部分で終了時間を設定するYO！
  var timer = new CountdownTimer('countdown',tl,'本日分は終了しました');
  //この上の文は終了した後に表示する文字!
