@@ -15,8 +15,7 @@ var timeTable=inText.split('\n')[1];
 //alert('destiny='+destiny+'\ntimeTable='+timeTable);
 var timeList=timeTable.split(' ');
 
-e=document.getElementById("titleElm");
-e.innerHTML="<b>"+destiny+"</b>";
+
 	
 jikan= new Date();
 year=jikan.getFullYear();
@@ -29,9 +28,9 @@ if (minute<10){minute='0'+minute}
 second = jikan.getSeconds();
 	
 window.onload=showday;
-//year=2020; //カウントダウン終了　年
-//mon=7; //カウントダウン終了　月
-//day=24; //カウントダウン終了　日
+year=2020; //カウントダウン終了　年
+month=7; //カウントダウン終了　月
+day=24; //カウントダウン終了　日
 time=0; //カウントダウン終了　時
 xday = new Date(year,month-1,day,time,00,00);
 function showday() {
@@ -59,6 +58,9 @@ else {
 	document.tbox.dspday.value = "本日分は終了しました。";
 }
 	timerID = setTimeout('showday()', 10);
+
+	e=document.getElementById("titleElm");
+        e.innerHTML="<b>"+destiny+"</b>";
 }
 
 // -->
