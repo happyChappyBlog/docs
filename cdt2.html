@@ -6,6 +6,10 @@
 
 <SCRIPT language=JavaScript>
 <!--
+var link=location.search.substr(1);
+var inText=decodeURIComponent(link);
+var destiny=inText.split('\n')[0];
+	
 window.onload=showday;
 year=2020; //カウントダウン終了　年
 mon=7; //カウントダウン終了　月
