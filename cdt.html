@@ -41,17 +41,23 @@ body {
 </style>
 <script type="text/javascript" src="./jquery.js"></script>
 <script type="text/javascript" src="./jqm/jquery.mobile.js"></script>
+</head>
 
+<body>
+<div id="titleElm"><h1>CountDownTimer</h1></div>
+<div id="inner">
+  <div id="countdown"><h2></h2></div>
+</div>
 <script language="JavaScript" type="text/javascript">
-function getDestiny(){
+
 var link=location.search.substr(1);
 var inText=decodeURIComponent(link);
-return inText.split('\n')[0];
-}
-	
-function getNextTime(){
-var link=location.search.substr(1);
-var inText=decodeURIComponent(link);
+var destiny=inText.split('\n')[0];
+
+var e=document.getElementById("titleElm");
+//alert(e);
+e.innerHTML='<b>'+destiny+'</b>';
+
 var timeTable=inText.split('\n')[1];
 //alert('destiny='+destiny+'\ntimeTable='+timeTable);
 var timeList=timeTable.split(' ');
@@ -71,24 +77,18 @@ var nowTime=hour+':'+minute+':'+second;
 for (var i=0;i<timeList.length-1;i++){
   if (nowTime>timeList[i]+':00'){
 	if (nowTime<=timeList[i+1]+':00'){
-		var nextTime=nowDate+' '+timeList[i+1];
+		nextTime=nowDate+' '+timeList[i+1];
 		break;
 	} else if (nowTime>timeList[timeList.length-1]+':00'){
-		var nextTime=nowDate+' '+timeList[timeList.length-1];
+		nextTime=nowDate+' '+timeList[timeList.length-1];
 		break;
 	}
   } else {
-	  var nextTime=nowDate+' '+timeList[0];
+	  nextTime=nowDate+' '+timeList[0];
 	  break;
   }
 }
 //alert(nextTime)
-return nextTime;
-}
-	
-var e=document.getElementById("titleElm");
-//alert(e);
-e.innerHTML='<b>'+getDestiny()+'</b>';
 
 //alert(location);
 function CountdownTimer(elm,tl,mes){
@@ -108,7 +108,6 @@ CountdownTimer.prototype={
   var sec=Math.floor(((this.tl-today)%(24*60*60*1000))/1000)%60%60;
   //var mil=Math.floor(((this.tl-today)%(24*60*60*1000))/10)%100;
   var me=this;
-
   if( ( this.tl - today ) > 0 ){
    //if (day) timer += '<span class="day">'+day+'</span><span class="moji">日</span>';
    if (hou) timer += '<span class="hou">'+hou+'</span><span class="moji">時間</span>';
@@ -116,13 +115,13 @@ CountdownTimer.prototype={
    this.elem.innerHTML = timer;
    tid = setTimeout( function(){me.countDown();},10 );
   }else{
-   this.elem.innerHTML = this.mes;
+this.elem.innerHTML = this.mes;
    return;
   }
  },addZero:function(num){ return ('0'+num).slice(-2); }
 }
+
 function countdown(){
- var newTime=getNextTime();
  var tl = new Date('2017/5/13 23:59:59');
  //この上の部分で終了時間を設定するYO！
  var timer = new CountdownTimer('countdown',tl,'本日分は終了しました');
@@ -133,12 +132,5 @@ window.onload=function(){
  countdown();
 }
 </script>
-</head>
-
-<body>
-<div id="titleElm"><h1>CountDownTimer</h1></div>
-<div id="inner">
-  <div id="countdown"><h2></h2></div>
-</div>
 </body>
 </html>
