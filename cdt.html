@@ -66,14 +66,14 @@ var timeList=timeTable.split(' ');
 var jikan= new Date();
 var year=jikan.getFullYear();
 var month=jikan.getMonth()+1;
-var day=jikan.getDate();
+var days=jikan.getDate();
 var hour = jikan.getHours();
 if (hour<10){hour='0'+hour}
 var minute = jikan.getMinutes();
 if (minute<10){minute='0'+minute}
 var second = jikan.getSeconds();
 //alert(hour+'時'+minute+'分'+second+'秒');
-var nowDate=yeat+'/'+month+'/'+day;
+var nowDate=year+'/'+month+'/'+days;
 var nowTime=hour+':'+minute+':'+second;
 for (var i=0;i<timeList.length-1;i++){
   if (nowTime>timeList[i]+':00'){
