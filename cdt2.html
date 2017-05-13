@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="./jqm/jquery.mobile.css" />
 <TITLE>CountDownTimer</TITLE>
 
-<SCRIPT language=JavaScript>
+<script language=JavaScript>
 <!--
 var link=location.search.substr(1);
 var inText=decodeURIComponent(link);
@@ -15,7 +15,7 @@ var timeTable=inText.split('\n')[1];
 //alert('destiny='+destiny+'\ntimeTable='+timeTable);
 var timeList=timeTable.split(' ');
 
-var jikan= new Date();
+jikan= new Date();
 year=jikan.getFullYear();
 month=jikan.getMonth()+1;
 day=jikan.getDate();
@@ -50,21 +50,21 @@ function showday() {
 	if(cnt_millisec<10){cnt_millisec = '0' + cnt_millisec;}
 
 if((xday - nowday) > 0){
-	document.tbox.dspday.value = cnt_hour+"時間"+cnt_min+"分"+cnt_sec+"秒"
+	document.tbox.dspday.value = cnt_hour+"時間"+cnt_min+"分"+cnt_sec+"秒";
 }
 else {
-	document.tbox.dspday.value = "本日分は終了しました。"
+	document.tbox.dspday.value = "本日分は終了しました。";
 }
 	timerID = setTimeout('showday()', 10);
 }
 
 // -->
-</SCRIPT>
+</script>
 
 </head>
 <body Margin="0" topMargin="0" marginheight="0" marginwidth="0">
 
-<FORM name="tbox"><INPUT name="dspday" type="text" style="font-size : 20pt; color : red; text-align : left;border-width : 0px ;font-weight :bold ;" size="70"></FORM>
+<form name="tbox"><INPUT name="dspday" type="text" style="font-size : 48pt; color : red; text-align : center;border-width : 0px ;font-weight :bold ;" size="70"></form>
 </body>
 </html>
 
