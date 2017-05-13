@@ -38,13 +38,22 @@ body {
 }
 </style>
 <script language="JavaScript" type="text/javascript">
-//alert(location);
 var link=location.search.substr(1);
 var inText=decodeURIComponent(link);
 var destiny=inText.split('\n')[0];
 var timeTable=inText.split('\n')[1];
-alert('destiny='+destiny+'\ntimeTable='+timeTable);
+//alert('destiny='+destiny+'\ntimeTable='+timeTable);
+var timeList=timeTable.split(' ');
 	
+var jikan= new Date();
+var hour = jikan.getHours();
+var minute = jikan.getMinutes();
+var second = jikan.getSeconds();
+alert(hour+'時'+minute+'分'+second+'秒');
+</script>
+	
+<script language="JavaScript" type="text/javascript">
+//alert(location);
 function CountdownTimer(elm,tl,mes){
  this.initialize.apply(this,arguments);
 }
