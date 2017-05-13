@@ -2,25 +2,25 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>カウントダウンタイマー01</title>
+<title>カウントダウンタイマー</title>
 <style>
 body {
 	margin: 0;
 	padding: 0;
 }
 #inner {
-	width: 600px;
+	width: 360px;
 	margin: 0;
 }
 
 #countdown {
 	font-family: serif;
 	font-weight: bold;
-	width: 600px;
+	width: 360px;
 	color: #990000;
 }
 .day, .hou, .min, .sec, .mil {/*カウントする数字の大きさ*/
-	font-size: 48px;
+	font-size: 36px;
 }
 .day {
 }
@@ -33,11 +33,15 @@ body {
 .mil {
 }
 .moji {/*日とか時間とか秒とかの文字の色と大きさ*/
-	font-size: 36px;
+	font-size: 30px;
 	color:#000000;
 }
 </style>
 <script language="JavaScript" type="text/javascript">
+link=location.search.substr(1);
+location=decodeURIComponent(link);
+alert(location);
+	
 function CountdownTimer(elm,tl,mes){
  this.initialize.apply(this,arguments);
 }
@@ -71,7 +75,7 @@ CountdownTimer.prototype={
 function countdown(){
  var tl = new Date('2025/07/04 00:00:00');
  //この上の部分で終了時間を設定するYO！
- var timer = new CountdownTimer('countdown',tl,'終了しました');
+ var timer = new CountdownTimer('本日分は終了しました');
  //この上の文は終了した後に表示する文字!
  timer.countDown();
 }
