@@ -90,8 +90,10 @@ for (var i=0;i<timeList.length-1;i++){
   }
 }
 //alert(nextTime)
-
 //alert(location);
+</script>
+	
+<script language="JavaScript" type="text/javascript">
 function CountdownTimer(elm,tl,mes){
  this.initialize.apply(this,arguments);
 }
@@ -123,6 +125,7 @@ CountdownTimer.prototype={
 }
 
 function countdown(){
+alert(nextTime);
  var tl = new Date('2017/5/13 23:59:59');
  //この上の部分で終了時間を設定するYO！
  var timer = new CountdownTimer('countdown',tl,'本日分は終了しました');
