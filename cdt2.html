@@ -14,14 +14,14 @@ var timeTable=inText.split('\n')[1];
 var timeList=timeTable.split(' ');
 
 var jikan= new Date();
-var year=jikan.getFullYear();
-var month=jikan.getMonth()+1;
-var day=jikan.getDate();
-var hour = jikan.getHours();
+year=jikan.getFullYear();
+month=jikan.getMonth()+1;
+day=jikan.getDate();
+hour = jikan.getHours();
 if (hour<10){hour='0'+hour}
-var minute = jikan.getMinutes();
+minute = jikan.getMinutes();
 if (minute<10){minute='0'+minute}
-var second = jikan.getSeconds();
+second = jikan.getSeconds();
 	
 window.onload=showday;
 //year=2020; //カウントダウン終了　年
