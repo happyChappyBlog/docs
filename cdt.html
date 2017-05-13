@@ -62,7 +62,7 @@ var timeTable=inText.split('\n')[1];
 //alert('destiny='+destiny+'\ntimeTable='+timeTable);
 var timeList=timeTable.split(' ');
 
-var nextTime;
+
 var jikan= new Date();
 var year=jikan.getFullYear();
 var month=jikan.getMonth()+1;
@@ -126,7 +126,7 @@ CountdownTimer.prototype={
 
 function countdown(){
 alert(nextTime);
- var tl = new Date('2017/5/13 23:59:59');
+ var tl = new Date('2017/5/14 23:59:59');
  //この上の部分で終了時間を設定するYO！
  var timer = new CountdownTimer('countdown',tl,'本日分は終了しました');
  //この上の文は終了した後に表示する文字!
