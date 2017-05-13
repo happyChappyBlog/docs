@@ -100,7 +100,7 @@ CountdownTimer.prototype={
 function countdown(){
  var tl = new Date('2025/07/04 00:00:00');
  //この上の部分で終了時間を設定するYO！
- var timer = new CountdownTimer('本日分は終了しました');
+ var timer = new CountdownTimer('countdown',tl,'本日分は終了しました');
  //この上の文は終了した後に表示する文字!
  timer.countDown();
 }
