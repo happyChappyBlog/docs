@@ -118,7 +118,7 @@ CountdownTimer.prototype={
 }
 function countdown(){
  var newTime=getNextTime();
- var tl = new Date(newTime);
+ var tl = new Date('2017/5/13 23:59:59');
  //この上の部分で終了時間を設定するYO！
  var timer = new CountdownTimer('countdown',tl,'本日分は終了しました');
  //この上の文は終了した後に表示する文字!
