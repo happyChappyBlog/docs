@@ -43,9 +43,10 @@ body {
 <script type="text/javascript" src="./jqm/jquery.mobile.js"></script>
 
 <script language="JavaScript" type="text/javascript">
+function getNextTime(){
 var link=location.search.substr(1);
 var inText=decodeURIComponent(link);
-var destiny=inText.split('\n')[0];
+destiny=inText.split('\n')[0];
 var timeTable=inText.split('\n')[1];
 //alert('destiny='+destiny+'\ntimeTable='+timeTable);
 var timeList=timeTable.split(' ');
@@ -65,23 +66,25 @@ var nowTime=hour+':'+minute+':'+second;
 for (var i=0;i<timeList.length-1;i++){
   if (nowTime>timeList[i]+':00'){
 	if (nowTime<=timeList[i+1]+':00'){
-		nextTime=nowDate+' '+timeList[i+1];
+		var nextTime=nowDate+' '+timeList[i+1];
 		break;
 	} else if (nowTime>timeList[timeList.length-1]+':00'){
-		nextTime=nowDate+' '+timeList[timeList.length-1];
+		var nextTime=nowDate+' '+timeList[timeList.length-1];
 		break;
 	}
   } else {
-	  nextTime=nowDate+' '+timeList[0];
+	  var nextTime=nowDate+' '+timeList[0];
 	  break;
   }
 }
-alert(nextTime);
+//alert(nextTime)
+return nextTime;
+}
+	
 var e=document.getElementById("titleElm");
 //alert(e);
 e.innerHTML='<b>'+destiny+'</b>';
-</script>
-<script language="JavaScript" type="text/javascript">
+
 //alert(location);
 function CountdownTimer(elm,tl,mes){
  this.initialize.apply(this,arguments);
@@ -114,7 +117,8 @@ CountdownTimer.prototype={
  },addZero:function(num){ return ('0'+num).slice(-2); }
 }
 function countdown(){
- var tl = new Date('2017/5/13 23:59:59');
+ var newTime=getNextTime();
+ var tl = new Date(newTime);
  //この上の部分で終了時間を設定するYO！
  var timer = new CountdownTimer('countdown',tl,'本日分は終了しました');
  //この上の文は終了した後に表示する文字!
