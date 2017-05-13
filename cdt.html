@@ -41,6 +41,46 @@ body {
 </style>
 <script type="text/javascript" src="./jquery.js"></script>
 <script type="text/javascript" src="./jqm/jquery.mobile.js"></script>
+
+<script language="JavaScript" type="text/javascript">
+var link=location.search.substr(1);
+var inText=decodeURIComponent(link);
+var destiny=inText.split('\n')[0];
+var timeTable=inText.split('\n')[1];
+//alert('destiny='+destiny+'\ntimeTable='+timeTable);
+var timeList=timeTable.split(' ');
+	
+var jikan= new Date();
+var year=jikan.getFullYear();
+var month=jikan.getMonth()+1;
+var day=jikan.getDate();
+var hour = jikan.getHours();
+if (hour<10){hour='0'+hour}
+var minute = jikan.getMinutes();
+if (minute<10){minute='0'+minute}
+var second = jikan.getSeconds();
+//alert(hour+'時'+minute+'分'+second+'秒');
+var nowDate=yeat+'/'+month+'/'+day;
+var nowTime=hour+':'+minute+':'+second;
+for (var i=0;i<timeList.length-1;i++){
+  if (nowTime>timeList[i]+':00'){
+	if (nowTime<=timeList[i+1]+':00'){
+		nextTime=nowDate+' '+timeList[i+1];
+		break;
+	} else if (nowTime>timeList[timeList.length-1]+':00'){
+		nextTime=nowDate+' '+timeList[timeList.length-1];
+		break;
+	}
+  } else {
+	  nextTime=nowDate+' '+timeList[0];
+	  break;
+  }
+}
+alert(nextTime);
+var e=document.getElementById("titleElm");
+//alert(e);
+e.innerHTML='<b>'+destiny+'</b>';
+</script>
 <script language="JavaScript" type="text/javascript">
 //alert(location);
 function CountdownTimer(elm,tl,mes){
@@ -83,46 +123,6 @@ function countdown(){
 window.onload=function(){
  countdown();
 }
-</script>
-
-<script language="JavaScript" type="text/javascript">
-var link=location.search.substr(1);
-var inText=decodeURIComponent(link);
-var destiny=inText.split('\n')[0];
-var timeTable=inText.split('\n')[1];
-//alert('destiny='+destiny+'\ntimeTable='+timeTable);
-var timeList=timeTable.split(' ');
-	
-var jikan= new Date();
-var year=jikan.getFullYear();
-var month=jikan.getMonth()+1;
-var day=jikan.getDate();
-var hour = jikan.getHours();
-if (hour<10){hour='0'+hour}
-var minute = jikan.getMinutes();
-if (minute<10){minute='0'+minute}
-var second = jikan.getSeconds();
-//alert(hour+'時'+minute+'分'+second+'秒');
-var nowDate=yeat+'/'+month+'/'+day;
-var nowTime=hour+':'+minute+':'+second;
-for (var i=0;i<timeList.length-1;i++){
-  if (nowTime>timeList[i]+':00'){
-	if (nowTime<=timeList[i+1]+':00'){
-		nextTime=nowDate+' '+timeList[i+1];
-		break;
-	} else if (nowTime>timeList[timeList.length-1]+':00'){
-		nextTime=nowDate+' '+timeList[timeList.length-1];
-		break;
-	}
-  } else {
-	  nextTime=nowDate+' '+timeList[0];
-	  break;
-  }
-}
-alert(nextTime);
-var e=document.getElementById("titleElm");
-//alert(e);
-e.innerHTML='<b>'+destiny+'</b>';
 </script>
 </head>
 
