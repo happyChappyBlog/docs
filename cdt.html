@@ -138,6 +138,7 @@ for (i=0;i<timeList.length-2;i++){
 </script>
 	
 <script language="JavaScript" type="text/javascript">
+reLoad=false;
 function CountdownTimer(elm,tl,mes){
  this.initialize.apply(this,arguments);
 }
@@ -172,6 +173,7 @@ CountdownTimer.prototype={
      //} else {
         //this.tl=timeList[nowNum+1]+':00';
      //}
+     reLoad=true;
      me.countdown();
      //window.onload=countdown();
      //window.location.reload();
@@ -192,7 +194,10 @@ function countdown(){
  //window.location.reload();
  var timer = new CountdownTimer('countdown',tl,'本日分は終了しました');
  //この上の文は終了した後に表示する文字!
- timer.countDown();
+if (reLoad){
+  window.location.reload();
+}
+timer.countDown();
 }
 //nextTrainTime=getNextTime();
 window.onload=function(){
