@@ -86,18 +86,26 @@ for (i=0;i<timeList.length-2;i++){
   if (nowTime>timeList[i]+':00'){
 	if (nowTime<=timeList[i+1]+':00'){
 		nextTime=nowDate+' '+timeList[i+1];
+		if (i+2<=timeList.length-1){
+		  nextNextTrain=timeList[i+2];
+		} else {
+		  nextNextTrain='';
+		}
 		break;
 	} else if (nowTime>timeList[timeList.length-1]+':00'){
 		nextTime=nowDate+' '+timeList[timeList.length-1];
+		nextNextTrain='';
 		break;
 	}
   } else {
 	  nextTime=nowDate+' '+timeList[0];
+	  nextNextTrain=timeList[1];
 	  break;
   }
 }
+var nextTrain=nextTime.split(' ')[1];
 var mesElm=document.getElementById("message");
-mesElm.innerHTML="次→"+nextTime.split(' ')[1];
+mesElm.innerHTML="次→"+nextTrain+" その次→"+nextNextTrain;
 //alert(nextTime)
 //alert(location);
 </script>
