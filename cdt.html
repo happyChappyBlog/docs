@@ -122,7 +122,7 @@ gnt=getNextTime();
 nt=gnt.split(',')[0];
 nextNextTrain=gnt.split(',')[1];
 nextTrain=nt.split(' ')[1];
-alert('nextTrain='+nextTrain+'\nnextNextTrain='+nextNextTrain);
+//alert('nextTrain='+nextTrain+'\nnextNextTrain='+nextNextTrain);
 var mesElm=document.getElementById("message");
 mesElm.innerHTML="次→"+nextTrain+" その次→"+nextNextTrain;
 //alert(nextTime)
@@ -164,6 +164,7 @@ function countdown(){
 //alert(nextTime);
  var tt=getNextTime();
  var trainTime=tt.split(',')[0];
+ alert(trainTime);
  var tl = new Date(trainTime);
  //この上の部分で終了時間を設定するYO！
  var timer = new CountdownTimer('countdown',tl,'本日分は終了しました');
