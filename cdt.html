@@ -162,28 +162,30 @@ CountdownTimer.prototype={
    this.elem.innerHTML = this.mes;
    return;
   } else {
-     countdown();
+     nextTrainTime=getNextTime();
+     countdown(nextTrainTime);
      //window.location.reload();
   }
  },addZero:function(num){ return ('0'+num).slice(-2); }
 }
 
-function countdown(){
+function countdown(nt){
 //alert(nextTime);
- tt=getNextTime();
+ //tt=getNextTime();
  //if (tt>trainTime){
-   trainTime=tt.split(',')[0]+':00';
+   //trainTime=tt.split(',')[0]+':00';
  //}
  //alert(trainTime);
- var tl = new Date(trainTime);
+ var tl = new Date(nt);
  //この上の部分で終了時間を設定するYO！
- window.location.reload();
+ //window.location.reload();
  var timer = new CountdownTimer('countdown',tl,'本日分は終了しました');
  //この上の文は終了した後に表示する文字!
  timer.countDown();
 }
+nextTrainTime=getNextTime();
 window.onload=function(){
- countdown();
+ countdown(nextTrainTime);
 }
 </script>
 </body>
