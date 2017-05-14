@@ -163,7 +163,7 @@ CountdownTimer.prototype={
    return;
   } else {
      countdown();
-     window.location.reload();
+     //window.location.reload();
   }
  },addZero:function(num){ return ('0'+num).slice(-2); }
 }
@@ -171,7 +171,10 @@ CountdownTimer.prototype={
 function countdown(){
 //alert(nextTime);
  tt=getNextTime();
- trainTime=tt.split(',')[0]+':00';
+ if (tt>trainTime){
+   trainTime=tt.split(',')[0]+':00';
+   window.location.reload();
+ }
  //alert(trainTime);
  var tl = new Date(trainTime);
  //この上の部分で終了時間を設定するYO！
