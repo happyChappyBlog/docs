@@ -160,7 +160,9 @@ CountdownTimer.prototype={
    this.elem.innerHTML = this.mes;
    return;
   } else {
-   countdown();
+   function(){
+     countdown();
+   }
   }
  },addZero:function(num){ return ('0'+num).slice(-2); }
 }
