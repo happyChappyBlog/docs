@@ -163,6 +163,7 @@ CountdownTimer.prototype={
    return;
   } else {
      countdown();
+     window.location.reload();
   }
  },addZero:function(num){ return ('0'+num).slice(-2); }
 }
