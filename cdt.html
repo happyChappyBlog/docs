@@ -115,18 +115,16 @@ for (i=0;i<timeList.length-2;i++){
 	  break;
   }
 }
+	gnt=getNextTime();
+        nt=gnt.split(',')[0];
+        nextNextTrain=gnt.split(',')[1];
+        nextTrain=nt.split(' ')[1];
+        var mesElm=document.getElementById("message");
+        mesElm.innerHTML="次→"+nextTrain+" その次→"+nextNextTrain;
+	
 	return nextTime+','+nextNextTrain;
 }
-	
-gnt=getNextTime();
-nt=gnt.split(',')[0];
-nextNextTrain=gnt.split(',')[1];
-nextTrain=nt.split(' ')[1];
-//alert('nextTrain='+nextTrain+'\nnextNextTrain='+nextNextTrain);
-var mesElm=document.getElementById("message");
-mesElm.innerHTML="次→"+nextTrain+" その次→"+nextNextTrain;
-//alert(nextTime)
-//alert(location);
+
 </script>
 	
 <script language="JavaScript" type="text/javascript">
