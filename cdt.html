@@ -114,11 +114,14 @@ for (i=0;i<timeList.length-2;i++){
 	  break;
   }
 }
-	return nextTime;
+	return nextTime+','+nextNextTrain;
 }
 	
 endTime=nowDate+' '+timeList[timeList.length-1];
-nextTrain=getNextTime().split(' ')[1];
+gnt=getNextTime();
+nt=gnt.split(',')[0];
+nextNextTrain=gnt.split(',')[1];
+nextTrain=nt.split(' ')[1];
 var mesElm=document.getElementById("message");
 mesElm.innerHTML="次→"+nextTrain+" その次→"+nextNextTrain;
 //alert(nextTime)
