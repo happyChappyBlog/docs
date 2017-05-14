@@ -184,9 +184,10 @@ function countdown(nt){
  timer.countDown();
 }
 nextTrainTime=getNextTime();
-window.onload=function(){
- countdown(nextTrainTime);
-}
+//window.onload=function(){
+ //countdown(nextTrainTime);
+//}
+window.onload=countdown(nextTrainTime);
 </script>
 </body>
 </html>
