@@ -45,6 +45,7 @@ body {
 
 <body>
 <div id="titleElm"><h1>CountDownTimer</h1></div>
+<div id="message"><h3></h3></div>
 <div id="inner">
   <div id="countdown"><h2></h2></div>
 </div>
@@ -81,7 +82,7 @@ var second = jikan.getSeconds();
 var nowDate=year+'/'+month+'/'+days;
 var nowTime=hour+':'+minute+':'+second;
 for (i=0;i<timeList.length-2;i++){
-  alert('now='+nowTime+'\ni='+timeList[i]+':00\ni+1='+timeList[i+1]+':00');
+  //alert('now='+nowTime+'\ni='+timeList[i]+':00\ni+1='+timeList[i+1]+':00');
   if (nowTime>timeList[i]+':00'){
 	if (nowTime<=timeList[i+1]+':00'){
 		nextTime=nowDate+' '+timeList[i+1];
@@ -95,6 +96,8 @@ for (i=0;i<timeList.length-2;i++){
 	  break;
   }
 }
+var mesElm=document.getElementById("message");
+mesElm.innerHTML="次→"+nextTime;
 //alert(nextTime)
 //alert(location);
 </script>
@@ -131,7 +134,7 @@ CountdownTimer.prototype={
 }
 
 function countdown(){
-alert(nextTime);
+//alert(nextTime);
  var tl = new Date(nextTime);
  //この上の部分で終了時間を設定するYO！
  var timer = new CountdownTimer('countdown',tl,'本日分は終了しました');
