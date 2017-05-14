@@ -163,7 +163,8 @@ CountdownTimer.prototype={
    return;
   } else {
      //nextTrainTime=getNextTime();
-     window.onload=countdown();
+     countdown();
+     //window.onload=countdown();
      //window.location.reload();
   }
  },addZero:function(num){ return ('0'+num).slice(-2); }
@@ -171,12 +172,12 @@ CountdownTimer.prototype={
 
 function countdown(){
 //alert(nextTime);
- tt=getNextTime();
+ //tt=getNextTime();
  //if (tt>trainTime){
-   trainTime=tt.split(',')[0]+':00';
+   //trainTime=tt.split(',')[0]+':00';
  //}
  alert(trainTime);
- var tl = new Date(trainTime);
+ var tl = new Date(nextTime);
  //この上の部分で終了時間を設定するYO！
  //window.location.reload();
  var timer = new CountdownTimer('countdown',tl,'本日分は終了しました');
