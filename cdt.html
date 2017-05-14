@@ -100,6 +100,7 @@ for (i=0;i<timeList.length-2;i++){
   if (nowTime>timeList[i]+':00'){
 	if (nowTime<=timeList[i+1]+':00'){
 		nextTime=nowDate+' '+timeList[i+1];
+		num=i+1;
 		if (i+2<=timeList.length-1){
 		  nextNextTrain=timeList[i+2];
 		} else {
@@ -108,11 +109,13 @@ for (i=0;i<timeList.length-2;i++){
 		break;
 	} else if (nowTime>timeList[timeList.length-1]+':00'){
 		nextTime=nowDate+' '+timeList[timeList.length-1];
+		num=timeList.length-1;
 		nextNextTrain='';
 		break;
 	}
   } else {
 	  nextTime=nowDate+' '+timeList[0];
+	  num=0;
 	  nextNextTrain=timeList[1];
 	  break;
   }
@@ -122,7 +125,7 @@ for (i=0;i<timeList.length-2;i++){
         var mesElm=document.getElementById("message");
         mesElm.innerHTML="次→"+nextTrain+" その次→"+nextNextTrain;
 	
-	return nextTime+','+nextNextTrain;
+	return nextTime+','+num;
 }
 
 //tt=getNextTime();
@@ -171,14 +174,14 @@ CountdownTimer.prototype={
 }
 
 function countdown(){
-nextTime=nextTime+':00';
-alert(nextTime);
- //tt=getNextTime();
+//nextTime=nextTime+':00';
+//alert(nextTime);
+ tt=getNextTime();
  //if (tt>trainTime){
-   //trainTime=tt.split(',')[0]+':00';
+   trainTime=tt.split(',')[0]+':00';
  //}
- //alert(trainTime);
- var tl = new Date(nextTime);
+ alert(trainTime);
+ var tl = new Date(trainTime);
  //この上の部分で終了時間を設定するYO！
  //window.location.reload();
  var timer = new CountdownTimer('countdown',tl,'本日分は終了しました');
