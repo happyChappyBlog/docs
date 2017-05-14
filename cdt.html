@@ -92,6 +92,7 @@ var second = jikan.getSeconds();
 //alert(hour+'時'+minute+'分'+second+'秒');
 var nowDate=year+'/'+month+'/'+days;
 var nowTime=hour+':'+minute+':'+second;
+endTime=nowDate+' '+timeList[timeList.length-1];
 for (i=0;i<timeList.length-2;i++){
   //alert('now='+nowTime+'\ni='+timeList[i]+':00\ni+1='+timeList[i+1]+':00');
   if (nowTime>timeList[i]+':00'){
@@ -117,11 +118,11 @@ for (i=0;i<timeList.length-2;i++){
 	return nextTime+','+nextNextTrain;
 }
 	
-endTime=nowDate+' '+timeList[timeList.length-1];
 gnt=getNextTime();
 nt=gnt.split(',')[0];
 nextNextTrain=gnt.split(',')[1];
 nextTrain=nt.split(' ')[1];
+alert('nextTrain='+nextTrain+'\nnextNextTrain='+nextNextTrain);
 var mesElm=document.getElementById("message");
 mesElm.innerHTML="次→"+nextTrain+" その次→"+nextNextTrain;
 //alert(nextTime)
