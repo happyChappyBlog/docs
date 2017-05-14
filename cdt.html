@@ -125,7 +125,7 @@ for (i=0;i<timeList.length-2;i++){
 	return nextTime+','+nextNextTrain;
 }
 
-var tt=getNextTime();
+tt=getNextTime();
 trainTime=tt.split(',')[0]+':00';
 //gnt=getNextTime();
 //nt=gnt.split(',')[0];
@@ -171,7 +171,7 @@ function countdown(){
 //alert(nextTime);
  //var tt=getNextTime();
  //var trainTime=tt.split(',')[0]+':00';
- //alert(trainTime);
+ alert(trainTime);
  var tl = new Date(trainTime);
  //この上の部分で終了時間を設定するYO！
  var timer = new CountdownTimer('countdown',tl,'本日分は終了しました');
