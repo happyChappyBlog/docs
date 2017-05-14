@@ -165,8 +165,14 @@ CountdownTimer.prototype={
    this.elem.innerHTML = this.mes;
    return;
   } else {
-     //nextTrainTime=getNextTime();
-     countdown();
+     nextTrainTime=getNextTime();
+     nowNum=nextTrainTime.split(',')[1];
+     if (nowNum=timeList.length-1){
+	this.tl=timeList[timeList.length-1]+':00';
+     } else {
+        this.tl=timeList[nowNum+1]+':00';
+     }
+     //countdown();
      //window.onload=countdown();
      //window.location.reload();
   }
