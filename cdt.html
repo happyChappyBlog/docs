@@ -156,6 +156,8 @@ CountdownTimer.prototype={
   }else if (endTime-today<0){
    this.elem.innerHTML = this.mes;
    return;
+  } else {
+   countdown();
   }
  },addZero:function(num){ return ('0'+num).slice(-2); }
 }
