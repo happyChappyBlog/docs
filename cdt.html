@@ -125,6 +125,8 @@ for (i=0;i<timeList.length-2;i++){
 	return nextTime+','+nextNextTrain;
 }
 
+var tt=getNextTime();
+trainTime=tt.split(',')[0]+':00';
 //gnt=getNextTime();
 //nt=gnt.split(',')[0];
 //nextNextTrain=gnt.split(',')[1];
@@ -160,17 +162,15 @@ CountdownTimer.prototype={
    this.elem.innerHTML = this.mes;
    return;
   } else {
-   function(){
      countdown();
-   }
   }
  },addZero:function(num){ return ('0'+num).slice(-2); }
 }
 
 function countdown(){
 //alert(nextTime);
- var tt=getNextTime();
- var trainTime=tt.split(',')[0]+':00';
+ //var tt=getNextTime();
+ //var trainTime=tt.split(',')[0]+':00';
  //alert(trainTime);
  var tl = new Date(trainTime);
  //この上の部分で終了時間を設定するYO！
