@@ -61,6 +61,11 @@ e.innerHTML='<b>'+destiny+'</b>';
 var timeTable=inText.split('\n')[1];
 //alert('destiny='+destiny+'\ntimeTable='+timeTable);
 var timeList=timeTable.split(' ');
+for (var i=0;i<timeList.length-1;i++){
+	if (timeList[i].split(':')[0]<10){
+		timeList[i]='0'+timeList[i];
+	}
+}
 
 
 var jikan= new Date();
