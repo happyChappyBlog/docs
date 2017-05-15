@@ -94,10 +94,10 @@ var second = jikan.getSeconds();
 //alert(hour+'時'+minute+'分'+second+'秒');
 var nowDate=year+'/'+month+'/'+days;
 var nowTime=hour+':'+minute+':'+second;
-endTime=nowDate+' '+timeList[timeList.length-1];
+endTime=nowDate+' '+timeList[timeList.length-1]+':00';
 for (i=0;i<timeList.length-2;i++){
   //alert('now='+nowTime+'\ni='+timeList[i]+':00\ni+1='+timeList[i+1]+':00');
-  if (nowTime>timeList[i]+':00'){
+  if (nowTime>=timeList[i]+':00'){
 	if (nowTime<=timeList[i+1]+':00'){
 		nextTime=nowDate+' '+timeList[i+1];
 		num=i+1;
@@ -164,7 +164,7 @@ CountdownTimer.prototype={
   }else if (endTime-today<0){
    this.elem.innerHTML = this.mes;
    return;
-  } else {
+  } else if (this.tl-today==0){
      //nextTrainTime=getNextTime();
      //nowNum=nextTrainTime.split(',')[1];
      //if (nowNum=timeList.length-1){
@@ -173,7 +173,7 @@ CountdownTimer.prototype={
         //this.tl=timeList[nowNum+1]+':00';
      //}
      reLoad=true;
-     me.countdown();
+     function(){me.countdown();}
      //window.onload=countdown();
      //window.location.reload();
   }
