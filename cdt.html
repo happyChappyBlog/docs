@@ -101,16 +101,20 @@ for (i=0;i<timeList.length-2;i++){
 	if (nowTime<timeList[i+1]+':00'){
 		nextTime=nowDate+' '+timeList[i+1];
 		num=i+1;
+		nextTrain=nextTime.split(' ')[1];
 		if (i+2<=timeList.length-1){
 		  nextNextTrain=timeList[i+2];
 		} else {
-		  nextNextTrain='';
+		  nextNextTrain='終了';
 		}
 		break;
-	} else if (nowTime>timeList[timeList.length-1]+':00'){
+	} else if (nowTime>=timeList[timeList.length-1]+':00'){
 		nextTime=nowDate+' '+timeList[timeList.length-1];
+		nextTrain='終了';
 		num=timeList.length-1;
 		nextNextTrain='終了';
+		elem=document.getElementById("countdown");
+                elem.innerHTML='<b>本日分は終了しました。</b>';
 		break;
 	}
   } else {
@@ -121,7 +125,7 @@ for (i=0;i<timeList.length-2;i++){
   }
 }
         //alert(endTime);
-        nextTrain=nextTime.split(' ')[1];
+        
         var mesElm=document.getElementById("message");
         mesElm.innerHTML="次→"+nextTrain+" その次→"+nextNextTrain;
 	
