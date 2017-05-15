@@ -120,7 +120,7 @@ for (i=0;i<timeList.length-2;i++){
 	  break;
   }
 }
-        alert(endTime);
+        //alert(endTime);
         nextTrain=nextTime.split(' ')[1];
         var mesElm=document.getElementById("message");
         mesElm.innerHTML="次→"+nextTrain+" その次→"+nextNextTrain;
@@ -197,6 +197,7 @@ function countdown(){
 if (reLoad){
   window.location.reload();
 }
+reLoad=false;
 timer.countDown();
 }
 //nextTrainTime=getNextTime();
