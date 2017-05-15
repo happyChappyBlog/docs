@@ -120,14 +120,14 @@ for (i=0;i<timeList.length-2;i++){
 	  break;
   }
 }
-  
+        alert(endTime);
         nextTrain=nextTime.split(' ')[1];
         var mesElm=document.getElementById("message");
         mesElm.innerHTML="次→"+nextTrain+" その次→"+nextNextTrain;
 	
 	return nextTime+','+num;
 }
-alert(endTime);
+
 //tt=getNextTime();
 //trainTime=tt.split(',')[0]+':00';
 //gnt=getNextTime();
