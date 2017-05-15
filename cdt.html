@@ -125,7 +125,7 @@ for (i=0;i<timeList.length-2;i++){
         var mesElm=document.getElementById("message");
         mesElm.innerHTML="次→"+nextTrain+" その次→"+nextNextTrain;
 	
-	return nextTime+','+num;
+	return nextTime+','+num+','+endTime;
 }
 
 //tt=getNextTime();
@@ -138,6 +138,8 @@ for (i=0;i<timeList.length-2;i++){
 
 <script language="JavaScript" type="text/javascript">
 //reLoad=false;
+gnt=getNextTime();
+endTime=gnt.split(',')[2];
 function CountdownTimer(elm,tl,mes){
  this.initialize.apply(this,arguments);
 }
