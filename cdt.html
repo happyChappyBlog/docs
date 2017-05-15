@@ -98,7 +98,7 @@ endTime=nowDate+' '+timeList[timeList.length-1]+':00';
 for (i=0;i<timeList.length-2;i++){
   //alert('now='+nowTime+'\ni='+timeList[i]+':00\ni+1='+timeList[i+1]+':00');
   if (nowTime>=timeList[i]+':00'){
-	if (nowTime<=timeList[i+1]+':00'){
+	if (nowTime<timeList[i+1]+':00'){
 		nextTime=nowDate+' '+timeList[i+1];
 		num=i+1;
 		if (i+2<=timeList.length-1){
@@ -173,7 +173,7 @@ CountdownTimer.prototype={
         //this.tl=timeList[nowNum+1]+':00';
      //}
      reLoad=true;
-     function(){me.countdown();}
+     me.countdown();
      //window.onload=countdown();
      //window.location.reload();
   }
