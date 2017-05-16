@@ -171,6 +171,7 @@ CountdownTimer.prototype={
    this.elem.innerHTML = this.mes;
    return;
   } else {
+     this.upDate();
      //function(){me.upDate();}
      //nextTrainTime=getNextTime();
      //nowNum=nextTrainTime.split(',')[1];
@@ -181,17 +182,18 @@ CountdownTimer.prototype={
      //}
      //reLoad=true;
 	  
-     tT=getNextTime();
-     trainT=tT.split(',')[0]+':00';
-     tL = new Date(trainTime);
-     Timer = new CountdownTimer('countdown',tL,'本日分は終了しました');
-     Timer.countDown();
+     //tT=getNextTime();
+     //trainT=tT.split(',')[0]+':00';
+     //tL = new Date(trainTime);
+     //Timer = new CountdownTimer('countdown',tL,'本日分は終了しました');
+     //Timer.countDown();
 	  
      //me.countdown();
      //window.onload=countdown();
      //window.location.reload();
   }
- },addZero:function(num){ return ('0'+num).slice(-2);}
+ },addZero:function(num){ return ('0'+num).slice(-2);
+ },upDate:function(){countdown();}
 }
 
 function countdown(){
