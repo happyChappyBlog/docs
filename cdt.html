@@ -166,7 +166,7 @@ CountdownTimer.prototype={
    if (hou) timer += '<span class="hou">'+hou+'</span><span class="moji">時間</span>';
    timer += '<span class="min">'+this.addZero(min)+'</span><span class="moji">分</span><span class="sec">'+this.addZero(sec)+'</span><span class="moji">秒</span>';
    this.elem.innerHTML = timer;
-   tid = setTimeout( function(){me.countDown();},10 );
+   tid = setTimeout( function(){me.countDown();},100 );
   }else if (endTime-today<0){
    this.elem.innerHTML = this.mes;
    return;
