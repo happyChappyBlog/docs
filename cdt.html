@@ -52,7 +52,7 @@ body {
 <script type="text/javascript" src="./jqm/jquery.mobile.js"></script>
 </head>
 
-<body>
+<body onload="javacript:doCountDown();">
 <div id="header" style='text-align : left'><h1><b>CountDownTimer</b></h1></div>
 <div style='border-radius:5px;border:1px solid lightblue;padding:10px;margin:2px 20px 5px 20px;text-align : center'>
 <div id="titleElm" style='text-align : center'><h1>CountDownTimer</h1></div>
@@ -64,6 +64,7 @@ body {
 <div id="footer" style='text-align : right'>happyChappy（<a href="https://twitter.com/happyChappy1115" target="_blank">@happyChappy1115</a>）</div>
 	
 <script language="JavaScript" type="text/javascript">
+<!--
 var link=location.search.substr(1);
 var inText=decodeURIComponent(link);
 var destiny=inText.split('\n')[0];
@@ -79,6 +80,10 @@ for (var i=0;i<timeList.length-1;i++){
 	if (timeList[i].split(':')[0]<10){
 		timeList[i]='0'+timeList[i];
 	}
+}
+
+function doCountDown() {
+  setInterval('countdown()', 100);
 }
 
 function getNextTime(){
@@ -137,10 +142,9 @@ for (i=0;i<timeList.length-1;i++){
 //gnt=getNextTime();
 //nt=gnt.split(',')[0];
 //nextNextTrain=gnt.split(',')[1];
-//nextTrain=nt.split(' ')[1];
-</script>     
+//nextTrain=nt.split(' ')[1]; 
 
-<script language="JavaScript" type="text/javascript">
+	
 //reLoad=false;
 gnt=getNextTime();
 endTime=gnt.split(',')[2];
@@ -199,31 +203,18 @@ CountdownTimer.prototype={
  },upDate:function(){countdown();}
 }
 
-function countdown(nextT){
-//nextTime=nextTime+':00';
-//alert(nextTime);
- //tt=getNextTime();
-  tt=nextT;
- //if (tt>trainTime){
-   trainTime=tt.split(',')[0]+':00';
- //}
- //alert(trainTime);
- var tl = new Date(trainTime);
- //この上の部分で終了時間を設定するYO！
- //window.location.reload();
- var timer = new CountdownTimer('countdown',tl,'本日分は終了しました');
- //この上の文は終了した後に表示する文字!
-//if (reLoad){
-  //window.location.reload();
-//}
-//reLoad=false;
-timer.countDown();
+function countdown(){
+var now = new Date();
+var tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+var diff = Math.floor((tomorrow.getTime() - now.getTime()) / 1000) + 1;
+var hour = Math.floor(diff / 3600);
+diff %= 3600;
+var min = Math.floor(diff / 60);
+var sec = diff % 60;
+document.getElementById('cd').innerHTML= "明日まで、あと" + hour + "時間" + min + "分" + sec + "秒";
 }
-//nextTrainTime=getNextTime();
-window.onload=function(){
- countdown(getNextTime());
-}
-//window.onload=countdown();
+
+//-->
 </script>
 </body>
 </html>
