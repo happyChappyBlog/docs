@@ -176,7 +176,9 @@ CountdownTimer.prototype={
 
 function countdown(){
 var now = new Date();
-var tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+var nt=getNextTime();
+var tomorrow=nt.split(',')[0]+':00';
+//var tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
 var diff = Math.floor((tomorrow.getTime() - now.getTime()) / 1000) + 1;
 var hou = Math.floor(diff / 3600);
 diff %= 3600;
