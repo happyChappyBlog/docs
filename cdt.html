@@ -20,7 +20,7 @@ body {
 	margin: 0;
 }
 
-#countdown {
+#cd {
 	text-align:center;
 	margin-left:auto;
 	margin-right:auto;
@@ -195,11 +195,11 @@ function countdown(){
 var now = new Date();
 var tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
 var diff = Math.floor((tomorrow.getTime() - now.getTime()) / 1000) + 1;
-var hour = Math.floor(diff / 3600);
+var hou = Math.floor(diff / 3600);
 diff %= 3600;
 var min = Math.floor(diff / 60);
 var sec = diff % 60;
-document.getElementById('cd').innerHTML= "明日まで、あと" + hour + "時間" + min + "分" + sec + "秒";
+document.getElementById('cd').innerHTML= '<span class="hou">'+hou + '</span><span class="moji">時間</span><span class="min">'+min + '</span><span class="moji">分</span><span class="sec">'+sec + '</span><span class="moji">秒</span>';
 }
 
 //-->
