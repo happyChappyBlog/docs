@@ -170,7 +170,8 @@ CountdownTimer.prototype={
   }else if (endTime-today<0){
    this.elem.innerHTML = this.mes;
    return;
-  } else if (this.tl-today==0){
+  } else {
+     this.upDate;
      //nextTrainTime=getNextTime();
      //nowNum=nextTrainTime.split(',')[1];
      //if (nowNum=timeList.length-1){
@@ -179,16 +180,19 @@ CountdownTimer.prototype={
         //this.tl=timeList[nowNum+1]+':00';
      //}
      //reLoad=true;
-     tT=getNextTime();
-     trainT=tT.split(',')[0]+':00';
-     tL = new Date(trainTime);
-     Timer = new CountdownTimer('countdown',tL,'本日分は終了しました');
-     Timer.countDown();
+	  
+     //tT=getNextTime();
+     //trainT=tT.split(',')[0]+':00';
+     //tL = new Date(trainTime);
+     //Timer = new CountdownTimer('countdown',tL,'本日分は終了しました');
+     //Timer.countDown();
+	  
      //me.countdown();
      //window.onload=countdown();
      //window.location.reload();
   }
- },addZero:function(num){ return ('0'+num).slice(-2); }
+ },addZero:function(num){ return ('0'+num).slice(-2);
+ },upDate:function(){countdown();}
 }
 
 function countdown(){
