@@ -171,7 +171,9 @@ CountdownTimer.prototype={
    this.elem.innerHTML = this.mes;
    return;
   } else {
-     countdown(getNextTime());
+	  alert('こうしん');
+     updateTime=getNextTime();
+     countdown(updateTime);
      //me.upDate();
      //function(){me.upDate();}
      //nextTrainTime=getNextTime();
