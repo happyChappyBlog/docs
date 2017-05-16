@@ -188,8 +188,9 @@ if (min<10){min='0'+min;}
 var sec = diff % 60;
 if (sec<10){sec='0'+sec;}
 if (hou==0){
-  document.getElementById('cd').innerHTML=
-document.getElementById('cd').innerHTML= '<span class="hou">'+hou + '</span><span class="moji">時間</span><span class="min">'+min + '</span><span class="moji">分</span><span class="sec">'+sec + '</span><span class="moji">秒</span>';
+  document.getElementById('cd').innerHTML='<span class="min">'+min + '</span><span class="moji">分</span><span class="sec">'+sec + '</span><span class="moji">秒</span>';
+} else {
+  document.getElementById('cd').innerHTML= '<span class="hou">'+hou + '</span><span class="moji">時間</span><span class="min">'+min + '</span><span class="moji">分</span><span class="sec">'+sec + '</span><span class="moji">秒</span>';
 }
 
 //-->
