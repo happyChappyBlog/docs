@@ -177,7 +177,8 @@ CountdownTimer.prototype={
 function countdown(){
 var now = new Date();
 var nt=getNextTime();
-var tomorrow=new Date(nt.split(',')[0]+':00');
+var nnt=nt.split(',')[0]+':00';
+var tomorrow=new Date(nnt);
 //alert(tomorrow);
 //var tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
 var diff = Math.floor((tomorrow.getTime() - now.getTime()) / 1000) + 1;
