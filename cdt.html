@@ -178,7 +178,7 @@ function countdown(){
 var now = new Date();
 var nt=getNextTime();
 var tomorrow=new Date(nt.split(',')[0]+':00');
-//alert(tomorrow);
+alert(tomorrow);
 //var tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
 var diff = Math.floor((tomorrow.getTime() - now.getTime()) / 1000) + 1;
 var hou = Math.floor(diff / 3600);
