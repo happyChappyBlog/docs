@@ -171,7 +171,8 @@ CountdownTimer.prototype={
    this.elem.innerHTML = this.mes;
    return;
   } else {
-     me.upDate();
+     countdown(getNextTime());
+     //me.upDate();
      //function(){me.upDate();}
      //nextTrainTime=getNextTime();
      //nowNum=nextTrainTime.split(',')[1];
@@ -196,10 +197,11 @@ CountdownTimer.prototype={
  },upDate:function(){countdown();}
 }
 
-function countdown(){
+function countdown(nextT){
 //nextTime=nextTime+':00';
 //alert(nextTime);
- tt=getNextTime();
+ //tt=getNextTime();
+  tt=nextT;
  //if (tt>trainTime){
    trainTime=tt.split(',')[0]+':00';
  //}
@@ -217,7 +219,7 @@ timer.countDown();
 }
 //nextTrainTime=getNextTime();
 window.onload=function(){
- countdown();
+ countdown(getNextTime());
 }
 //window.onload=countdown();
 </script>
