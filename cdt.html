@@ -118,6 +118,7 @@ var nt=getNextTime();
 var nnt=nt+':00';
 var tomorrow=new Date(nnt);
 
+if (now<=tomorrow){
 var diff = Math.floor((tomorrow.getTime() - now.getTime()) / 1000) + 1;
 var hou = Math.floor(diff / 3600);
 diff %= 3600;
@@ -132,6 +133,10 @@ if (hou==0){
 }
 var tt=document.getElementById('cd');
 	tt.innerHTML=timeDisp;
+}
+} else {
+var tt=document.getElementById('cd');
+	tt.innerHTML='本日分は終了しました。';
 }
 //-->
 </script>
