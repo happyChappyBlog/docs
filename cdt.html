@@ -108,7 +108,8 @@ for (i=0;i<timeList.length-1;i++){
           mesElm.innerHTML="次→【最終】"+nextTrain+" その次→"+nextNextTrain;
 	} else if (nextNextTrain+':00'==endTime){
 	  mesElm.innerHTML="次→"+nextTrain+" その次→【最終】"+nextNextTrain;
-	}
+	} else {
+	  mesElm.innerHTML=
 	return nextTime;
 }
 
