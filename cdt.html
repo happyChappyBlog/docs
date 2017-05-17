@@ -119,7 +119,7 @@ var nnt=nt+':00';
 var tomorrow=new Date(nnt);
 
 var diff = Math.floor((tomorrow.getTime() - now.getTime()) / 1000) + 1;
-if (diff>0){
+if (diff>=0){
 var hou = Math.floor(diff / 3600);
 diff %= 3600;
 var min = Math.floor(diff / 60);
