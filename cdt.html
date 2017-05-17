@@ -102,9 +102,9 @@ for (i=0;i<timeList.length-1;i++){
 }
 	alert('end='+endTime);
         var mesElm=document.getElementById("message");
-	if (nextTrain+':00'==endTime){
+	if (nowDate+' '+nextTrain+':00'==endTime){
           mesElm.innerHTML="次→【最終】"+nextTrain+" その次→"+nextNextTrain;
-	} else if (nextNextTrain+':00'==endTime){
+	} else if (nowDate+' '+nextNextTrain+':00'==endTime){
 	  mesElm.innerHTML="次→"+nextTrain+" その次→【最終】"+nextNextTrain;
 	} else {
 	  mesElm.innerHTML="次→"+nextTrain+" その次→"+nextNextTrain;
