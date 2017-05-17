@@ -50,7 +50,6 @@ body {
 </style>
 <script type="text/javascript" src="./jquery.js"></script>
 <script type="text/javascript" src="./jqm/jquery.mobile.js"></script>
-
 <script language="JavaScript" type="text/javascript">
 <!--
 function doCountDown() {
@@ -67,12 +66,12 @@ if (hour<10){hour='0'+hour}
 var minute = jikan.getMinutes();
 if (minute<10){minute='0'+minute}
 var second = jikan.getSeconds();
-//alert(hour+'時'+minute+'分'+second+'秒');
+
 var nowDate=year+'/'+month+'/'+days;
 var nowTime=hour+':'+minute+':'+second;
 endTime=nowDate+' '+timeList[timeList.length-1]+':00';
 for (i=0;i<timeList.length-1;i++){
-  //alert('now='+nowTime+'\ni='+timeList[i]+':00\ni+1='+timeList[i+1]+':00');
+
   if (nowTime>=timeList[i]+':00'){
 	if (nowTime<timeList[i+1]+':00'){
 		nextTime=nowDate+' '+timeList[i+1];
@@ -101,8 +100,6 @@ for (i=0;i<timeList.length-1;i++){
 	  break;
   }
 }
-        //alert(endTime);
-        
         var mesElm=document.getElementById("message");
 	if (nextTrain+':00'==endTime){
           mesElm.innerHTML="次→【最終】"+nextTrain+" その次→"+nextNextTrain;
@@ -113,69 +110,13 @@ for (i=0;i<timeList.length-1;i++){
 	}
 	return nextTime;
 }
-
-function CountdownTimer(elm,tl,mes){
- this.initialize.apply(this,arguments);
-}
-CountdownTimer.prototype={
- initialize:function(elm,tl,mes) {
-  this.elem = document.getElementById(elm);
-  this.tl = tl;
-  this.mes = mes;
- },countDown:function(){
-  var timer='';
-  var today=new Date();
-  var day=Math.floor((this.tl-today)/(24*60*60*1000));
-  var hou=Math.floor(((this.tl-today)%(24*60*60*1000))/(60*60*1000));
-  var min=Math.floor(((this.tl-today)%(24*60*60*1000))/(60*1000))%60;
-  var sec=Math.floor(((this.tl-today)%(24*60*60*1000))/1000)%60%60;
-  //var mil=Math.floor(((this.tl-today)%(24*60*60*1000))/10)%100;
-  var me=this;
-  if( ( this.tl - today ) > 0 ){
-   //if (day) timer += '<span class="day">'+day+'</span><span class="moji">日</span>';
-   if (hou) timer += '<span class="hou">'+hou+'</span><span class="moji">時間</span>';
-   timer += '<span class="min">'+this.addZero(min)+'</span><span class="moji">分</span><span class="sec">'+this.addZero(sec)+'</span><span class="moji">秒</span>';
-   this.elem.innerHTML = timer;
-   tid = setTimeout( function(){me.countDown();},100 );
-  }else if (endTime-today<0){
-   this.elem.innerHTML = this.mes;
-   return;
-  } else {
-	  //alert('こうしん');
-     updateTime=getNextTime();
-     countdown(updateTime);
-     //me.upDate();
-     //function(){me.upDate();}
-     //nextTrainTime=getNextTime();
-     //nowNum=nextTrainTime.split(',')[1];
-     //if (nowNum=timeList.length-1){
-	//this.tl=timeList[timeList.length-1]+':00';
-     //} else {
-        //this.tl=timeList[nowNum+1]+':00';
-     //}
-     //reLoad=true;
-	  
-     //tT=getNextTime();
-     //trainT=tT.split(',')[0]+':00';
-     //tL = new Date(trainTime);
-     //Timer = new CountdownTimer('countdown',tL,'本日分は終了しました');
-     //Timer.countDown();
-	  
-     //me.countdown();
-     //window.onload=countdown();
-     //window.location.reload();
-  }
- },addZero:function(num){ return ('0'+num).slice(-2);
- },upDate:function(){countdown();}
-}
-
+  
 function countdown(){
 var now = new Date();
 var nt=getNextTime();
 var nnt=nt+':00';
 var tomorrow=new Date(nnt);
-//alert(tomorrow);
-//var tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+
 var diff = Math.floor((tomorrow.getTime() - now.getTime()) / 1000) + 1;
 var hou = Math.floor(diff / 3600);
 diff %= 3600;
@@ -210,11 +151,9 @@ var inText=decodeURIComponent(link);
 var destiny=inText.split('\n')[0];
 
 var e=document.getElementById("titleElm");
-//alert(e);
 e.innerHTML='<b>'+destiny+'</b>';
 
 var timeTable=inText.split('\n')[1];
-//alert('destiny='+destiny+'\ntimeTable='+timeTable);
 timeList=timeTable.split(' ');
 for (var i=0;i<timeList.length-1;i++){
 	if (timeList[i].split(':')[0]<10){
