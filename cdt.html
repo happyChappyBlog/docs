@@ -95,6 +95,7 @@ for (i=0;i<timeList.length-1;i++){
 	}
   } else {
 	  nextTime=nowDate+' '+timeList[0];
+	  nextTrain='【始発】'+timeList[0];
 	  num=0;
 	  nextNextTrain=timeList[1];
 	  break;
@@ -103,9 +104,12 @@ for (i=0;i<timeList.length-1;i++){
         //alert(endTime);
         
         var mesElm=document.getElementById("message");
-        mesElm.innerHTML="次→"+nextTrain+" その次→"+nextNextTrain;
-	
-	return nextTime+','+num+','+endTime;
+	if (nextTrain+':00'==endTime){
+          mesElm.innerHTML="次→【最終】"+nextTrain+" その次→"+nextNextTrain;
+	} else if (nextNextTrain+':00'==endTime){
+	  mesElm.innerHTML="次→"+nextTrain+" その次→【最終】"+nextNextTrain;
+	}
+	return nextTime;
 }
 
 //tt=getNextTime();
@@ -117,8 +121,8 @@ for (i=0;i<timeList.length-1;i++){
 
 	
 //reLoad=false;
-gnt=getNextTime();
-endTime=gnt.split(',')[2];
+//gnt=getNextTime();
+//endTime=gnt.split(',')[2];
 function CountdownTimer(elm,tl,mes){
  this.initialize.apply(this,arguments);
 }
@@ -177,7 +181,7 @@ CountdownTimer.prototype={
 function countdown(){
 var now = new Date();
 var nt=getNextTime();
-var nnt=nt.split(',')[0]+':00';
+var nnt=nt+':00';
 var tomorrow=new Date(nnt);
 //alert(tomorrow);
 //var tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
