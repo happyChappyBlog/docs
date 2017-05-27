@@ -5,7 +5,6 @@
 <link rel="stylesheet" href="./jqm/jquery.mobile.css" />
 <script type="text/javascript" src="./jquery.js"></script>
 <script type="text/javascript" src="./jqm/jquery.mobile.js"></script>
-
 <body>
 <script type="text/javascript">
 <!--
@@ -312,7 +311,8 @@ function nationalHoliday(year, month, day, holidayList) {
 }
 
 var holidayList = getHoliday(decLink);
-document.getElementById('result').innerHTML = holidayList;
+var el=document.getElementById('result');
+el.innerHTML = holidayList;
 // -->
 </script>
 <div id="result"></div>
