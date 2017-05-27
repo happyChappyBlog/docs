@@ -6,6 +6,7 @@
 <script type="text/javascript" src="./jquery.js"></script>
 <script type="text/javascript" src="./jqm/jquery.mobile.js"></script>
 <body>
+<div id="yearTitle"></div>
 <div id="result"></div>
 <script type="text/javascript">
 <!--
@@ -319,6 +320,8 @@ for (var i = 0; i < holidayList.length; i++) {
 }
 var el=document.getElementById('result');
 el.innerHTML = insert;
+var yt=document.getElementById('yearTitle');
+yt.innerHTML=<h2>decLink+'年祝日'</h2>;
 // -->
 </script>
 </body>
