@@ -11,7 +11,7 @@
 <!--
 var link=location.search.substr(1);
 var decLink=decodeURIComponent(link);
-alert(decLink);
+//alert(decLink);
 function getHoliday(year) {
     // 祝日の定義
     var holidayList = [
@@ -312,7 +312,7 @@ function nationalHoliday(year, month, day, holidayList) {
 }
 
 var holidayList = getHoliday(decLink);
-alert(holidayList[0]['date']);
+//alert(holidayList[0]['date']);
 var insert = '';
 for (var i = 0; i < holidayList.length; i++) {
     insert += holidayList[i]['date'] + ': ' + holidayList[i]['name'] + '<br>';
