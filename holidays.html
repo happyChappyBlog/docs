@@ -315,7 +315,8 @@ var insert = '';
 for (var i = 0; i < holidayList.length; i++) {
     insert += holidayList[i]['date'] + ': ' + holidayList[i]['name'] + '<br>';
 }
-document.getElementById('result').innerHTML = insert;
+var el=document.getElementById('result');
+el.innerHTML = insert;
 // -->
 </script>
 <div id="result"></div>
