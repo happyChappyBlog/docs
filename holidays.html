@@ -311,8 +311,11 @@ function nationalHoliday(year, month, day, holidayList) {
 }
 
 var holidayList = getHoliday(decLink);
-var el=document.getElementById('result');
-el.innerHTML = holidayList;
+var insert = '';
+for (var i = 0; i < holidayList.length; i++) {
+    insert += holidayList[i]['date'] + ': ' + holidayList[i]['name'] + '<br>';
+}
+document.getElementById('result').innerHTML = insert;
 // -->
 </script>
 <div id="result"></div>
