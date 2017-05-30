@@ -22,7 +22,7 @@ el.innerHTML=sort(mode,upDown,inText);
 function sort(mode,upDown,inText){
   switch(mode){
     case 'num':
-      if upDown=='up'{
+      if (upDown=='up') {
         inText.sort(function(a, b){
           return a - b;
         });
