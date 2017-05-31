@@ -16,11 +16,15 @@ var decLink=decodeURIComponent(link);
   var upDown=decLink.split(',')[1];
   var inText=decLink.split(',')[2].split('\n');
   //alert('mode='+ mode +'\nupDown='+ upDown +'\ninText='+ inText);
-var st=sorter(inText);
+//var st=sorter(inText);
+  st='';
+  for (i=0;i<inText.length;i++){
+    st+=inText[i]+'<br>';
+  }
   
 var el=document.getElementById('preContent');
 el.innerHTML=st;
-
+/*
 function sorter(e){
   alert('mode='+mode+'\nupDown='+upDown+'\ne='+e);
   switch(mode){
@@ -62,7 +66,7 @@ function sorter(e){
       break;
   }
 }
-
+*/
 // -->
 </script>
 </body>
