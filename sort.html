@@ -15,7 +15,9 @@ var decLink=decodeURIComponent(link);
   var mode=decLink.split(',')[0];
   var upDown=decLink.split(',')[1];
   var inText=decLink.split(',')[2].split('\n').join(',');
+  
   //alert('mode='+ mode +'\nupDown='+ upDown +'\ninText='+ inText);
+  
 var st=sorter(inText);
 var result=st.join('<br>');
   /*
