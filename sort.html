@@ -17,13 +17,13 @@ var decLink=decodeURIComponent(link);
   var inText=decLink.split(',')[2].split('\n');
   //alert('mode='+ mode +'\nupDown='+ upDown +'\ninText='+ inText);
 var el=document.getElementById('preContent');
-el.innerHTML=sorter(mode,upDown,inText);
+el.innerHTML=sorter(inText);
 
-function sorter(c,d,e){
-  alert('c='+c+'\nd='+d+'\ne='+e);
-  switch(c){
+function sorter(e){
+  alert('mode='+mode+'\nupDown='+upDown+'\ne='+e);
+  switch(mode){
     case 'num':
-      if (d=='up') {
+      if (upDown=='up') {
         e.sort(function(a, b){
           return a - b;
         });
