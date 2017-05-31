@@ -17,6 +17,7 @@ var decLink=decodeURIComponent(link);
   var inText=decLink.split(',')[2].split('\n');
   //alert('mode='+ mode +'\nupDown='+ upDown +'\ninText='+ inText);
 var st=sorter(inText);
+  
 var el=document.getElementById('preContent');
 el.innerHTML=st;
 
