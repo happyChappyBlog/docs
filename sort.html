@@ -17,9 +17,8 @@ var decLink=decodeURIComponent(link);
   var inText=decLink.split(',')[2].split('\n');
   alert('mode='+ mode +'\nupDown='+ upDown +'\ninText='+ inText);
 var el=document.getElementById('preContent');
-el.innerHTML=decLink;
-//el.innerHTML=sort(mode,upDown,inText[]);
-/*
+el.innerHTML=sort(mode,upDown,inText[]);
+
 function sort(mode,upDown,inText[]){
   switch(mode){
     case 'num':
@@ -60,7 +59,7 @@ function sort(mode,upDown,inText[]){
       break;
   }
 }
-*/
+
 // -->
 </script>
 </body>
