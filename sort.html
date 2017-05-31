@@ -17,6 +17,7 @@ var decLink=decodeURIComponent(link);
   var inText=decLink.split(',')[2].split('\n');
   //alert('mode='+ mode +'\nupDown='+ upDown +'\ninText='+ inText);
 var st=sorter(inText);
+var result=st.join('<br>');
   /*
   var st='';
   for (i=0;i<inText.length;i++){
@@ -24,7 +25,7 @@ var st=sorter(inText);
   }
   */
 var el=document.getElementById('preContent');
-el.innerHTML=st;
+el.innerHTML=result;
 
 function sorter(e){
   alert('mode='+mode+'\nupDown='+upDown+'\ne='+e);
@@ -32,11 +33,13 @@ function sorter(e){
     case 'num':
       if (upDown=='up') {
         e.sort(function(a, b){
-          return a - b;
+          sorter=a-b;
+          return sorter;
         });
       } else {
         e.sort(function(a, b){
-          return b - a;
+          sorter=b-a;
+          return sorter;
         });
       }
       break;
@@ -63,7 +66,8 @@ function sorter(e){
           }
         }
       }
-      return e;
+      sorter=e;
+      return sorter;
       break;
   }
 }
