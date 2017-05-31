@@ -16,8 +16,9 @@ var decLink=decodeURIComponent(link);
   var upDown=decLink.split(',')[1];
   var inText=decLink.split(',')[2].split('\n');
   //alert('mode='+ mode +'\nupDown='+ upDown +'\ninText='+ inText);
+var st=sorter(inText);
 var el=document.getElementById('preContent');
-el.innerHTML=sorter(inText);
+el.innerHTML=st;
 
 function sorter(e){
   alert('mode='+mode+'\nupDown='+upDown+'\ne='+e);
