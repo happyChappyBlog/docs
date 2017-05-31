@@ -11,51 +11,51 @@
 <!--
 var link=location.search.substr(1);
 var decLink=decodeURIComponent(link);
-  alert(decLink);
+  //alert(decLink);
   var mode=decLink.split(',')[0];
   var upDown=decLink.split(',')[1];
   var inText=decLink.split(',')[2].split('\n');
-  alert('mode='+ mode +'\nupDown='+ upDown +'\ninText='+ inText);
+  //alert('mode='+ mode +'\nupDown='+ upDown +'\ninText='+ inText);
 var el=document.getElementById('preContent');
 el.innerHTML=sort(mode,upDown,inText);
 
-function sort(mode,upDown,inText){
-  switch(mode){
+function sort(c,d,e){
+  switch(c){
     case 'num':
-      if (upDown=='up') {
-        inText.sort(function(a, b){
+      if (d=='up') {
+        e.sort(function(a, b){
           return a - b;
         });
       } else {
-        inText.sort(function(a, b){
+        e.sort(function(a, b){
           return b - a;
         });
       }
       break;
     case 'date':
-      if (inText[0].indexOf('/')>0){
+      if (e[0].indexOf('/')>0){
         var sep='/';
-      } else if (inText[0].indexOf('-')>0){
+      } else if (e[0].indexOf('-')>0){
         var sep='-';
       }
-      for (i=0;i<inText.length;i++){
-        var dates=inText[i].split(sep);
+      for (i=0;i<e.length;i++){
+        var dates=e[i].split(sep);
         var datesLength=dates.length;
         for (j=datesLength-2;j<datesLength;j++){
           if parseInt(dates[j])<10 {
             dates[j]='0'+dates[j];
           }
         }
-        inText[i]='';
+        e[i]='';
         for (j=0;j<datesLength;j++){
           if (j!=datesLength-1){
-            inText[i]+=dates[j]+sep;
+            e[i]+=dates[j]+sep;
           } else {
-            inText[i]+=dates[j];
+            e[i]+=dates[j];
           }
         }
       }
-      return inText;
+      return e;
       break;
   }
 }
