@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>HTML preview</title>
+<title>sort</title>
 <meta name="viewport" content="width=device-width" >
 <link rel="stylesheet" href="./jqm/jquery.mobile.css" />
 <script type="text/javascript" src="./jquery.js"></script>
@@ -15,11 +15,11 @@ var decLink=decodeURIComponent(link);
   var mode=decLink.split(',')[0];
   var upDown=decLink.split(',')[1];
   var inText=decLink.split(',')[2].split('\n');
-  alert('mode='+mode+'\nupDown='+upDown+'\ninText='+inText);
+  alert('mode='+ mode +'\nupDown='+ upDown +'\ninText='+ inText);
 var el=document.getElementById('preContent');
-el.innerHTML=sort(mode,upDown,inText);
+el.innerHTML=sort(mode,upDown,inText[]);
   
-function sort(mode,upDown,inText){
+function sort(mode,upDown,inText[]){
   switch(mode){
     case 'num':
       if (upDown=='up') {
@@ -55,7 +55,7 @@ function sort(mode,upDown,inText){
           }
         }
       }
-      return inText;
+      return inText[];
       break;
   }
 }
