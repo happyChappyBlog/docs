@@ -12,9 +12,17 @@
 var link=location.search.substr(1);
 var decLink=decodeURIComponent(link);
   //alert(decLink);
-  var mode=decLink.split(',')[0];
-  var upDown=decLink.split(',')[1];
-  var inText=decLink.split(',')[2].split('\n');
+  var mode=decLink.split('|')[0];
+  var upDown=decLink.split('|')[1];
+  var sepChr=decLink.split('|')[2];
+  var inText=[];
+  if (sepChr == 'LF'){
+    inText=decLink.split('|')[3].split('\n');
+  } else if (sepChr == 'CM'){
+    inText=decLink.split('|')[3].split(',');
+  } else if (sepChr == 'SP'){
+    inText=decLink.split('|')[3].split(' ');
+  }
   
   //alert('mode='+ mode +'\nupDown='+ upDown +'\ninText='+ inText);
 
