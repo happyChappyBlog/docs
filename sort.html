@@ -17,9 +17,50 @@ var decLink=decodeURIComponent(link);
   var inText=decLink.split(',')[2].split('\n');
   
   alert('mode='+ mode +'\nupDown='+ upDown +'\ninText='+ inText);
+
+//function sorter(e){
   
-var st=sorter(inText);
-var result=st.join('<br>');
+  switch(mode){
+    case 'num':
+      if (upDown=='up') {
+        inText.sort(function(a, b){
+          return a-b;
+        });
+      } else {
+        inText.sort(function(a, b){
+          return b-a;
+        });
+      }
+      break;
+    case 'date':
+      if (inText[0].indexOf('/')>0){
+        var sep='/';
+      } else if (inText[0].indexOf('-')>0){
+        var sep='-';
+      }
+      for (i=0;i<inText.length;i++){
+        var dates=inText[i].split(sep);
+        var datesLength=dates.length;
+        for (j=datesLength-2;j<datesLength;j++){
+          if dates[j]<10 {
+            dates[j]='0'+dates[j];
+          }
+        }
+        inText[i]='';
+        for (j=0;j<datesLength;j++){
+          if (j!=datesLength-1){
+            inText[i]+=dates[j]+sep;
+          } else {
+            inText[i]+=dates[j];
+          }
+        }
+      }
+      inText.sort();
+      break;
+  }
+//}
+
+var result=inText.join('<br>');
   /*
   var st='';
   for (i=0;i<inText.length;i++){
@@ -29,52 +70,7 @@ var result=st.join('<br>');
   
 var el=document.getElementById('preContent');
 el.innerHTML=result;
-
-function sorter(e){
-  alert('mode='+mode+'\nupDown='+upDown+'\ne='+e);
-  switch(mode){
-    case 'num':
-      if (upDown=='up') {
-        e.sort(function(a, b){
-          sorter=a-b;
-          return sorter;
-        });
-      } else {
-        e.sort(function(a, b){
-          sorter=b-a;
-          return sorter;
-        });
-      }
-      break;
-    case 'date':
-      if (e[0].indexOf('/')>0){
-        var sep='/';
-      } else if (e[0].indexOf('-')>0){
-        var sep='-';
-      }
-      for (i=0;i<e.length;i++){
-        var dates=e[i].split(sep);
-        var datesLength=dates.length;
-        for (j=datesLength-2;j<datesLength;j++){
-          if parseInt(dates[j])<10 {
-            dates[j]='0'+dates[j];
-          }
-        }
-        e[i]='';
-        for (j=0;j<datesLength;j++){
-          if (j!=datesLength-1){
-            e[i]+=dates[j]+sep;
-          } else {
-            e[i]+=dates[j];
-          }
-        }
-      }
-      sorter=e;
-      return sorter;
-      break;
-  }
-}
-
+  
 // -->
 </script>
 </body>
