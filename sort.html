@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>sort</title>
+<title>sorter</title>
 <meta name="viewport" content="width=device-width" >
 <link rel="stylesheet" href="./jqm/jquery.mobile.css" />
 <script type="text/javascript" src="./jquery.js"></script>
@@ -20,8 +20,8 @@ var decLink=decodeURIComponent(link);
 
 //function sorter(e){
   
-  switch(mode){
-    case 'num':
+  //switch(mode){
+    //case 'num':
       if (upDown=='up') {
         inText.sort(function(a, b){
           return a-b;
@@ -31,8 +31,8 @@ var decLink=decodeURIComponent(link);
           return b-a;
         });
       }
-      break;
-    case 'date':
+      //break;
+/*    case 'date':
       if (inText[0].indexOf('/')>0){
         var sep='/';
       } else if (inText[0].indexOf('-')>0){
@@ -59,14 +59,8 @@ var decLink=decodeURIComponent(link);
       break;
   }
 //}
-
+*/
 var result=inText.join('<br>');
-  /*
-  var st='';
-  for (i=0;i<inText.length;i++){
-    st+=inText[i]+'<br>';
-  }
-  */
   
 var el=document.getElementById('preContent');
 el.innerHTML=result;
