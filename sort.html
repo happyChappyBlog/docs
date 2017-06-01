@@ -22,6 +22,8 @@ var decLink=decodeURIComponent(link);
     inText=decLink.split('|')[3].split(',');
   } else if (sepChr == 'SP'){
     inText=decLink.split('|')[3].split(' ');
+  } else if (sepChr == 'TEN'){
+    inText=decLink.split('|')[3].split('、');
   }
   
   //alert('mode='+ mode +'\nupDown='+ upDown +'\ninText='+ inText);
@@ -161,6 +163,8 @@ if (sepChr == 'LF'){
     result=inText.join(',');
   } else if (sepChr == 'SP'){
     result=inText.join(' ');
+  } else if (sepChr == 'TEN'){
+    result=inText.join('、');
   }
   
 var el=document.getElementById('preContent');
