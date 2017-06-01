@@ -37,7 +37,9 @@ var decLink=decodeURIComponent(link);
           return b-a;
         });
       }
-      inText=String(inText);
+      for (i=0;i<inText.length;i++){
+        inText[i]=String(inText[i]);
+      }
       break;
       
     case 'date':
