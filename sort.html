@@ -32,6 +32,7 @@ var decLink=decodeURIComponent(link);
         });
       }
       break;
+      
     case 'date':
       if (inText[0].indexOf('/') > 0){
         var sep='/';
@@ -55,6 +56,21 @@ var decLink=decodeURIComponent(link);
           }
         }
       }
+      if (upDown == 'up') {
+        inText.sort();
+      } else {
+        inText.sort();
+        var tmp=[];
+        for (i=0;i<inText.length;i++){
+          tmp[i]=inText[i];
+        }
+        for (i=0;i<tmp.length;i++){
+          inText[i]=tmp[tmp.length-1-i];
+        }
+      }
+      break;
+      
+    case 'none':
       if (upDown == 'up') {
         inText.sort();
       } else {
