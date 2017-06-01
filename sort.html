@@ -56,9 +56,13 @@ var decLink=decodeURIComponent(link);
         }
       }
       if (upDown == 'up') {
-        inText.sort(1);
+        inText.sort(function(a, b){
+          return a-b;
+        });
       } else {
-        inText.sort(-1);
+        inText.sort(function(a, b){
+          return b-a;
+        });
       }
       break;
   }
