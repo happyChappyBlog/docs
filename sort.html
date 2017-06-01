@@ -58,7 +58,11 @@ var decLink=decodeURIComponent(link);
       if (upDown == 'up') {
         inText.sort();
       } else {
-        var tmp=inText.sort();
+        inText.sort();
+        var tmp=[];
+        for (i=0;i<inText.length;i++){
+          tmp[i]=inText[i];
+        }
         for (i=0;i<tmp.length;i++){
           inText[i]=tmp[tmp.length-1-i];
         }
