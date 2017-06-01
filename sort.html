@@ -56,13 +56,12 @@ var decLink=decodeURIComponent(link);
         }
       }
       if (upDown == 'up') {
-        inText.sort(function(a, b){
-          return a-b;
-        });
+        inText.sort();
       } else {
-        inText.sort(function(a, b){
-          return b-a;
-        });
+        var tmp=inText.sort();
+        for (i=0;i<tmp.length;i++){
+          inText[i]=tmp[tmp.length-1-i];
+        }
       }
       break;
   }
