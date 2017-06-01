@@ -11,7 +11,7 @@
 <!--
 var link=location.search.substr(1);
 var decLink=decodeURIComponent(link);
-  //alert(decLink);
+
   var mode=decLink.split('|')[0];
   var upDown=decLink.split('|')[1];
   var sepChr=decLink.split('|')[2];
@@ -25,10 +25,6 @@ var decLink=decodeURIComponent(link);
   } else if (sepChr == 'TEN'){
     inText=decLink.split('|')[3].split('、');
   }
-  
-  //alert('mode='+ mode +'\nupDown='+ upDown +'\ninText='+ inText);
-
-//function sorter(e){
   
   switch(mode){
     case 'num':
@@ -154,7 +150,6 @@ function katakanaToHiragana(src) {
       }
       break;
   }
-//}
 
 var result='';
 if (sepChr == 'LF'){
@@ -169,7 +164,7 @@ if (sepChr == 'LF'){
   
 var el=document.getElementById('result');
 el.innerHTML=result;
-  //document.write(result);
+
 // -->
 </script>
 </body>
