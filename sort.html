@@ -55,7 +55,11 @@ var decLink=decodeURIComponent(link);
           }
         }
       }
-      inText.sort();
+      if (upDown == 'up') {
+        inText.sort(1);
+      } else {
+        inText.sort(-1);
+      }
       break;
   }
 //}
