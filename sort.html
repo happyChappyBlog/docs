@@ -6,6 +6,7 @@
 <script type="text/javascript" src="./jquery.js"></script>
 <script type="text/javascript" src="./jqm/jquery.mobile.js"></script>
 <body>
+<div id="modeTitle"></div>
 <div id="result"></div>
 <script type="text/javascript">
 <!--
@@ -26,17 +27,23 @@ var decLink=decodeURIComponent(link);
     inText=decLink.split('|')[3].split('、');
   }
   
+var tl='';
+var ud='';
+  
   switch(mode){
     case 'num':
       if (upDown == 'up') {
         inText.sort(function(a, b){
           return a-b;
         });
+        ud='昇順';
       } else {
         inText.sort(function(a, b){
           return b-a;
         });
+        ud='降順';
       }
+      tl='数値';
       /*
       for (i=0;i<inText.length;i++){
         inText[i]=String(inText[i]);
@@ -69,6 +76,7 @@ var decLink=decodeURIComponent(link);
       }
       if (upDown == 'up') {
         inText.sort();
+        ud='昇順';
       } else {
         inText.sort();
         var tmp=[];
@@ -78,7 +86,9 @@ var decLink=decodeURIComponent(link);
         for (i=0;i<tmp.length;i++){
           inText[i]=tmp[tmp.length-1-i];
         }
+        ud='降順';
       }
+      tl='日付';
       break;
     
     case 'alph':
@@ -93,6 +103,7 @@ var decLink=decodeURIComponent(link);
         }
         return 0;
         });
+        ud='昇順';
       } else {
         inText.sort(function(a, b){
           a = a.toString().toLowerCase();
@@ -104,7 +115,9 @@ var decLink=decodeURIComponent(link);
         }
         return 0;
         });
+        ud='降順';
       }
+      tl='アルファベット';
       break;
       
     case 'kana':
@@ -119,6 +132,7 @@ var decLink=decodeURIComponent(link);
         }
         return 0;
         });
+        ud='昇順';
       } else {
         inText.sort(function(a, b){
     a = katakanaToHiragana(a.toString());
@@ -130,8 +144,9 @@ var decLink=decodeURIComponent(link);
         }
         return 0;
         });
+        ud='降順';
       }
-        
+      tl='かな';
 function katakanaToHiragana(src) {
     return src.replace(/[\u30a1-\u30f6]/g, function(match) {
         var chr = match.charCodeAt(0) - 0x60;
@@ -143,6 +158,7 @@ function katakanaToHiragana(src) {
     case 'none':
       if (upDown == 'up') {
         inText.sort();
+        ud='昇順';
       } else {
         inText.sort();
         var tmp=[];
@@ -152,7 +168,9 @@ function katakanaToHiragana(src) {
         for (i=0;i<tmp.length;i++){
           inText[i]=tmp[tmp.length-1-i];
         }
+        ud='降順';
       }
+      tl='辞書順';
       break;
   }
 
@@ -166,9 +184,14 @@ if (sepChr == 'LF'){
   } else if (sepChr == 'TEN'){
     result=inText.join('、');
   }
-  
+
 var el=document.getElementById('result');
 el.innerHTML=result;
+  
+var titleElem=document.getElementById('modeTitle');
+titleElem.innerHTML='<h2>' + tl + ' ' + ud + '</h2>';
+  
+  
 
 // -->
 </script>
