@@ -197,6 +197,7 @@ el.innerHTML=result;
 var titleElem=document.getElementById('modeTitle');
 titleElem.innerHTML='<h2>' + tl + ' ' + ud + '</h2>';
 
+location.href='workflow://run-workflow?title=Clipboard&input='+encodeURIComponent(result);
 // -->
 </script>
 </body>
