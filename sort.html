@@ -44,11 +44,6 @@ var ud='';
         ud='降順';
       }
       tl='数値';
-      /*
-      for (i=0;i<inText.length;i++){
-        inText[i]=String(inText[i]);
-      }
-      */
       break;
       
     case 'date':
@@ -177,15 +172,6 @@ function katakanaToHiragana(src) {
 var result='';
 if (sepChr == 'LF'){
   result=inText.join('\n');
-  /*
-    for (i=0;i<inText.length;i++){
-      if (i != inText.length-1){
-        result+=inText[i]+'<br>';
-      } else {
-        result+=inText[i];
-      }
-    }
-    */
   } else if (sepChr == 'CM'){
     result=inText.join(',');
   } else if (sepChr == 'SP'){
@@ -200,7 +186,7 @@ el.innerHTML=result;
 var titleElem=document.getElementById('modeTitle');
 titleElem.innerHTML='<h2>' + tl + ' ' + ud + '</h2>';
 
-location.href='workflow://run-workflow?name='+encodeURIComponent('Clipboard for メモ')+'&input='+encodeURIComponent(result);
+location.href='workflow://run-workflow?name=Clipboard&input='+encodeURIComponent(result);
 // -->
 </script>
 </body>
