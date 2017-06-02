@@ -176,6 +176,8 @@ function katakanaToHiragana(src) {
 
 var result='';
 if (sepChr == 'LF'){
+  result=inText.join('\n');
+  /*
     for (i=0;i<inText.length;i++){
       if (i != inText.length-1){
         result+=inText[i]+'<br>';
@@ -183,6 +185,7 @@ if (sepChr == 'LF'){
         result+=inText[i];
       }
     }
+    */
   } else if (sepChr == 'CM'){
     result=inText.join(',');
   } else if (sepChr == 'SP'){
