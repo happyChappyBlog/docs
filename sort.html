@@ -17,15 +17,15 @@ var decLink=decodeURIComponent(link);
   var upDown=decLink.split('|')[1];
   var sepChr=decLink.split('|')[2];
   var inText=[];
-  if (sepChr == 'LF'){
+  if (sepChr === 'LF'){
     inText=decLink.split('|')[3].split('\n');
-  } else if (sepChr == 'CM'){
+  } else if (sepChr === 'CM'){
     inText=decLink.split('|')[3].split(',');
-  } else if (sepChr == 'SP'){
+  } else if (sepChr === 'SP'){
     inText=decLink.split('|')[3].split(' ');
-  } else if (sepChr == 'TEN'){
+  } else if (sepChr === 'TEN'){
     inText=decLink.split('|')[3].split('、');
-  } else if (sepChr == 'TB'){
+  } else if (sepChr === 'TB'){
     inText=decLink.split('|')[3].split('\t');
   }
   
@@ -172,15 +172,15 @@ function katakanaToHiragana(src) {
   }
 
 var result='';
-if (sepChr == 'LF'){
+if (sepChr === 'LF'){
   result=inText.join('\n');
-  } else if (sepChr == 'CM'){
+  } else if (sepChr === 'CM'){
     result=inText.join(',');
-  } else if (sepChr == 'SP'){
+  } else if (sepChr === 'SP'){
     result=inText.join(' ');
-  } else if (sepChr == 'TEN'){
+  } else if (sepChr === 'TEN'){
     result=inText.join('、');
-  } else if (sepChr == 'TB'){
+  } else if (sepChr === 'TB'){
     result=inText.join('\t');
   }
 
