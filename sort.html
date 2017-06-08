@@ -30,6 +30,7 @@ var decLink=decodeURIComponent(link);
     inText=decLink.split('|')[3].split('、');
   } else if (sepChr === 'TB'){
     decLink.replace(/\n/g,'');
+    alert(decLink);
     inText=decLink.split('|')[3].split('\t');
   }
   
