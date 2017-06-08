@@ -53,6 +53,7 @@ var ud='';
       break;
       
     case 'date':
+      var zeroFlg='false';
       if (inText[0].indexOf('/') > 0){
         var sep='/';
       } else if (inText[0].indexOf('-') > 0){
@@ -64,6 +65,7 @@ var ud='';
         for (j=datesLength-2;j<datesLength;j++){
           if (dates[j] < 10) {
             dates[j]='0'+dates[j];
+            zeroFlg='true';
           }
         }
         inText[i]='';
@@ -88,6 +90,19 @@ var ud='';
           inText[i]=tmp[tmp.length-1-i];
         }
         ud='降順';
+      }
+      var tmpMonth='';
+      var tmpDay='';
+      if (zeroFlg === 'true'){
+        for (i=0;i<inText.length;i++){
+          if (Number(inText[i].split(sep)[1]) < 10){
+            tmpMonth=Number(inText[i].split(sep)[1]);
+        }
+          if (Number(inText[i].split(sep)[2]) < 10){
+            tmpDay=Number(inText[i].split(sep)[2]);
+        }
+          inText[i]=inText[i].split(sep)[0]+sep+tmpMonth+sep+tmpDay;
+      }
       }
       tl='日付';
       break;
