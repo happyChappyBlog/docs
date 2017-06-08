@@ -185,7 +185,7 @@ if (sepChr === 'LF'){
   } else if (sepChr === 'TEN'){
     result=inText.join('、');
   } else if (sepChr === 'TB'){
-    result=inText.join('\t');
+    result=inText.join('\t').replace(/[\r\n]/g,'\t');
   }
 
 var el=document.getElementById('result');
