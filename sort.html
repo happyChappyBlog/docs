@@ -16,6 +16,7 @@ var decLink=decodeURIComponent(link);
   var mode=decLink.split('|')[0];
   var upDown=decLink.split('|')[1];
   var sepChr=decLink.split('|')[2];
+  alert(sepChr);
   var inText=[];
   if (sepChr === 'LF'){
     inText=decLink.split('|')[3].split('\n');
