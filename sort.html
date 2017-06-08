@@ -16,7 +16,6 @@ var decLink=decodeURIComponent(link);
   var mode=decLink.split('|')[0];
   var upDown=decLink.split('|')[1];
   var sepChr=decLink.split('|')[2];
-  alert(sepChr);
   var inText=[];
   if (sepChr === 'LF'){
     inText=decLink.split('|')[3].split('\n');
@@ -27,9 +26,7 @@ var decLink=decodeURIComponent(link);
   } else if (sepChr === 'TEN'){
     inText=decLink.split('|')[3].split('、');
   } else if (sepChr === 'TB'){
-    alert(decLink);
-    decLink.replace(/ /g,'');
-    alert(decLink);
+    decLink.replace(/\n/g,'');
     inText=decLink.split('|')[3].split('\t');
   }
   
