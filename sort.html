@@ -53,7 +53,7 @@ var ud='';
       break;
       
     case 'date':
-      var zeroFlg='false';
+      var zeroFlg=[];
       if (inText[0].indexOf('/') > 0){
         var sep='/';
       } else if (inText[0].indexOf('-') > 0){
@@ -62,10 +62,13 @@ var ud='';
       for (i=0;i<inText.length;i++){
         var dates=inText[i].split(sep);
         var datesLength=dates.length;
+        zeroFlg[i]=[];
         for (j=datesLength-2;j<datesLength;j++){
           if (dates[j] < 10) {
             dates[j]='0'+dates[j];
-            zeroFlg='true';
+            zeroFlg[i][j]='true';
+          } else {
+            zeroFlg[i][j]='false';
           }
         }
         inText[i]='';
@@ -93,17 +96,21 @@ var ud='';
       }
       var tmpMonth='';
       var tmpDay='';
-      if (zeroFlg === 'true'){
-        for (i=0;i<inText.length;i++){
-          if (Number(inText[i].split(sep)[1]) < 10){
+      
+      for (i=0;i<inText.length;i++){
+        if (zeroFlg[i][1] === 'true'){
+          if (Number(inText[i].split(sep)[1]) < 10){
             tmpMonth=Number(inText[i].split(sep)[1]);
         }
-          if (Number(inText[i].split(sep)[2]) < 10){
+        }
+        if (zeroFlg[i][2] === 'true'){
+          if (Number(inText[i].split(sep)[2]) < 10){
             tmpDay=Number(inText[i].split(sep)[2]);
+        }
         }
           inText[i]=inText[i].split(sep)[0]+sep+tmpMonth+sep+tmpDay;
       }
-      }
+      
       tl='日付';
       break;
     
