@@ -177,7 +177,7 @@ function katakanaToHiragana(src) {
 
 var result='';
 if (sepChr === 'LF'){
-  result=inText.join('\n');
+  result=inText.join('\n').replace(/^[\r\n]/g,'').replace(/[\r\n]$/g,'');
   } else if (sepChr === 'CM'){
     result=inText.join(',');
   } else if (sepChr === 'SP'){
