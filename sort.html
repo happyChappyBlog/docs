@@ -20,10 +20,13 @@ var decLink=decodeURIComponent(link);
   if (sepChr === 'LF'){
     inText=decLink.split('|')[3].split('\n');
   } else if (sepChr === 'CM'){
+    decLink.replace(/\n/g,'');
     inText=decLink.split('|')[3].split(',');
   } else if (sepChr === 'SP'){
+    decLink.replace(/\n/g,'');
     inText=decLink.split('|')[3].split(' ');
   } else if (sepChr === 'TEN'){
+    decLink.replace(/\n/g,'');
     inText=decLink.split('|')[3].split('、');
   } else if (sepChr === 'TB'){
     decLink.replace(/\n/g,'');
