@@ -99,14 +99,14 @@ var ud='';
       
       for (i=0;i<inText.length;i++){
         if (zeroFlg[i][1] === 'true'){
-          if (Number(inText[i].split(sep)[1]) < 10){
-            tmpMonth=Number(inText[i].split(sep)[1]);
-        }
+           tmpMonth=Number(inText[i].split(sep)[1]);
+        } else {
+          tmpMonth=inText[i].split(sep)[1];
         }
         if (zeroFlg[i][2] === 'true'){
-          if (Number(inText[i].split(sep)[2]) < 10){
             tmpDay=Number(inText[i].split(sep)[2]);
-        }
+        } else {
+          tmpDay=inText[i].split(sep)[2];
         }
           inText[i]=inText[i].split(sep)[0]+sep+tmpMonth+sep+tmpDay;
       }
