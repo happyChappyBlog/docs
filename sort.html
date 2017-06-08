@@ -26,6 +26,7 @@ var decLink=decodeURIComponent(link);
   } else if (sepChr === 'TEN'){
     inText=decLink.split('|')[3].split('、');
   } else if (sepChr === 'TB'){
+    decLink.replace(/ /g,'');
     inText=decLink.split('|')[3].split('\t');
   }
   
