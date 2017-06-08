@@ -20,13 +20,13 @@ var decLink=decodeURIComponent(link);
   if (sepChr === 'LF'){
     inText=decLink.split('|')[3].split('\n');
   } else if (sepChr === 'CM'){
-    decLink.replace(/\n/g,'');
+    decLink.replace(/[\r\n]$/g,'');
     inText=decLink.split('|')[3].split(',');
   } else if (sepChr === 'SP'){
-    decLink.replace(/\n/g,'');
+    decLink.replace(/[\r\n]$/g,'');
     inText=decLink.split('|')[3].split(' ');
   } else if (sepChr === 'TEN'){
-    decLink.replace(/\n/g,'');
+    decLink.replace(/[\r\n]$/g,'');
     inText=decLink.split('|')[3].split('、');
   } else if (sepChr === 'TB'){
     decLink.replace(/[\r\n]$/,'');
@@ -185,7 +185,7 @@ if (sepChr === 'LF'){
   } else if (sepChr === 'TEN'){
     result=inText.join('、');
   } else if (sepChr === 'TB'){
-    result=inText.join('\t').replace(/[\r\n]/g,'\t');
+    result=inText.join('\t').replace(/[\r\n]/g,'');
   }
 
 var el=document.getElementById('result');
