@@ -53,7 +53,7 @@ var ud='';
       break;
       
     case 'date':
-      var zeroFlg=[];
+      var zeroFlg='false';
       if (inText[0].indexOf('/') > 0){
         var sep='/';
       } else if (inText[0].indexOf('-') > 0){
@@ -62,14 +62,11 @@ var ud='';
       for (i=0;i<inText.length;i++){
         var dates=inText[i].split(sep);
         var datesLength=dates.length;
-        zeroFlg[i]=[];
         for (j=datesLength-2;j<datesLength;j++){
-          if (dates[j] < 10) {
+          if (String(dates[j]).length < 2) {
             dates[j]='0'+dates[j];
-            zeroFlg[i][j]='true';
-          } else {
-            zeroFlg[i][j]='false';
-          }
+            zeroFlg='true';
+          } 
         }
         inText[i]='';
         for (j=0;j<datesLength;j++){
@@ -98,14 +95,11 @@ var ud='';
       var tmpDay='';
       
       for (i=0;i<inText.length;i++){
-        if (zeroFlg[i][1] === 'true'){
+        if (zeroFlg === 'true'){
            tmpMonth=Number(inText[i].split(sep)[1]);
+          tmpDay=Number(inText[i].split(sep)[2]);
         } else {
 tmpMonth=inText[i].split(sep)[1];
-        }
-        if (zeroFlg[i][2] === 'true'){
-            tmpDay=Number(inText[i].split(sep)[2]);
-        } else {
 tmpDay=inText[i].split(sep)[2];
         }
         alert('zeroFlg['+i+'][1]='+zeroFlg[i][1]+'\nzeroFlg['+i+'][2]='+zeroFlg[i][2]+'\ntmpMonth='+tmpMonth+'\ntmpDay='+tmpDay);
