@@ -101,12 +101,12 @@ var ud='';
         if (zeroFlg[i][1] === 'true'){
            tmpMonth=Number(inText[i].split(sep)[1]);
         } else {
-          tmpMonth=inText[i].split(sep)[1];
+tmpMonth=inText[i].split(sep)[1];
         }
         if (zeroFlg[i][2] === 'true'){
             tmpDay=Number(inText[i].split(sep)[2]);
         } else {
-          tmpDay=inText[i].split(sep)[2];
+tmpDay=inText[i].split(sep)[2];
         }
           inText[i]=inText[i].split(sep)[0]+sep+tmpMonth+sep+tmpDay;
       }
