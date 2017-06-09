@@ -102,8 +102,8 @@ var ud='';
 tmpMonth=inText[i].split(sep)[1];
 tmpDay=inText[i].split(sep)[2];
         }
-        alert('zeroFlg['+i+'][1]='+zeroFlg[i][1]+'\nzeroFlg['+i+'][2]='+zeroFlg[i][2]+'\ntmpMonth='+tmpMonth+'\ntmpDay='+tmpDay);
-          inText[i]=inText[i].split(sep)[0]+sep+tmpMonth+sep+tmpDay;
+        alert('zeroFlg='+zeroFlg+'\ntmpMonth='+tmpMonth+'\ntmpDay='+tmpDay);
+          inText[i]=inText[i].split(sep)[0]+sep+String(tmpMonth)+sep+String(tmpDay);
       }
       
       tl='日付';
